@@ -270,6 +270,7 @@
     from { opacity: 1; }
     to { opacity: 0; transform: translateX(-50%) translateY(-10px); }
   }
+
   .ext-link-card {
     background: white;
     border: 1px solid var(--border);
@@ -299,7 +300,6 @@
     border-radius: 1rem;
     font-weight: 600;
   }
-  .ext-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.15rem;
@@ -312,7 +312,6 @@
   }
 
   /* ===== 添加按钮样式 ===== */
-  .btn-add-gold {
     background: linear-gradient(135deg, var(--gold), #e8b84f);
     color: white;
     padding: 0.45rem 1rem;
@@ -325,7 +324,6 @@
     font-family: inherit;
     white-space: nowrap;
   }
-  .btn-add-gold:hover {
     background: linear-gradient(135deg, #e8b84f, var(--gold-light));
     box-shadow: 0 4px 12px rgba(212, 168, 83, 0.4);
   }
@@ -504,7 +502,7 @@ function showHome() {
     { name: '学习材料', icon: '📋', color: 'from-amber-500 to-amber-700', desc: '正负面清单、五对关系等结构化材料' },
     { name: '交流发言', icon: '🎤', color: 'from-blue-500 to-blue-700', desc: '发言提纲、学习体会、交流材料' },
     { name: '政策部署', icon: '🏛️', color: 'from-purple-500 to-purple-700', desc: '党中央部署通知、学习教育方案' },
-      ];
+  ];
   
   const catCount = getCatCounts();
   const userCount = getUserAddedCount();
@@ -542,12 +540,6 @@ function showHome() {
       <!-- Category Cards -->
       <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
         ${cats.map(c => {
-          </div>
-              <div class="font-semibold text-base mb-1" style="color:var(--dark)">${c.name}</div>
-              <div class="text-xs text-gray-500 mb-2">${c.desc}</div>
-              <div class="text-xs font-bold" style="color:var(--red)">${totalExtLinks} 个</div>
-            </div>`;
-          }
           return `
           <div class="card-hover bg-white rounded-xl p-5 cursor-pointer shadow-sm border border-gray-100"
                onclick="showArticles('${c.name}')">
@@ -610,7 +602,6 @@ function renderArticleCard(a, keyword='') {
     '学习材料': 'bg-amber-50 text-amber-700',
     '交流发言': 'bg-blue-50 text-blue-700',
     '政策部署': 'bg-purple-50 text-purple-700',
-    
   };
   const title = keyword ? highlightText(a.title, keyword) : a.title;
   const summary = keyword ? highlightText(a.summary, keyword) : a.summary;
@@ -618,6 +609,7 @@ function renderArticleCard(a, keyword='') {
   const isExt = a.isExternal;
   const wordCount = a.wordCount || (a.content ? a.content.length : 0);
   const source = a.source || '用户添加';
+
   if (isExt || a.url) {
     return `
     <div class="card-hover bg-white rounded-xl p-5 shadow-sm border border-gray-100"
@@ -625,7 +617,6 @@ function renderArticleCard(a, keyword='') {
       <div class="flex items-start justify-between gap-3">
         <div class="flex-1 min-w-0">
           <div class="flex items-center gap-2 mb-2 flex-wrap">
-            
             ${isUser ? '<span class="user-badge">✨ 新增</span>' : ''}
             <span class="text-xs text-gray-400">${source}</span>
           </div>
@@ -1023,7 +1014,18 @@ function toggleRelation(idx) {
   renderRelationsPage();
 }
 
+// ========== Scroll Handler ==========
+window.addEventListener('scroll', () => {
+  const btn = $('#scrollTopBtn');
+  if (window.scrollY > 300) {
+    btn.classList.add('visible');
+  } else {
+    btn.classList.remove('visible');
+  }
+});
 
+// ========== Init ==========
+showHome();
 </script>
 </body>
 </html>
