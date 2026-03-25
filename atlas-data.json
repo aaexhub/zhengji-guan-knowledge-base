@@ -1,0 +1,2144 @@
+{
+  "categories": [
+    {
+      "id": "cat1",
+      "name": "树立正确政绩观，坚持以人民为中心的发展思想",
+      "short": "以人民为中心",
+      "positive": [
+        "树立统筹兼顾、综合施策的政绩导向",
+        "践行绿水青山就是金山银山理念",
+        "既做显绩，也做潜绩",
+        "坚守为民造福是最大政绩的初心",
+        "秉持功成不必在我、功成必定有我的理念",
+        "强化担当作为意识",
+        "重视本土特色资源与基础工作",
+        "树立全局一盘棋思想",
+        "强化跨部门协同意识",
+        "秉持良性竞争、合作共赢理念",
+        "秉持与时俱进、开拓创新理念"
+      ],
+      "negative": [
+        "固守唯GDP论英雄",
+        "存在重开发轻保护的错误思维",
+        "存在急功近利心态",
+        "把工作当作个人升迁垫脚石",
+        "不愿接续前任合理工作",
+        "总认为多干多错、少干少错",
+        "认为小产业、小民生无政绩",
+        "将单一领域成效等同于整体政绩",
+        "搞本位主义，忽视区域协同、产业联动",
+        "不愿主动担当补位",
+        "因循守旧、故步自封",
+        "搞一阵风式创新"
+      ]
+    },
+    {
+      "id": "cat2",
+      "name": "坚持实事求是，作出符合实际、遵循规律的科学决策",
+      "short": "科学决策",
+      "positive": [
+        "坚持实事求是、因地制宜",
+        "强化系统思维",
+        "坚持从群众中来、到群众中去",
+        "决策要尊重规律",
+        "树立底线思维",
+        "坚持量入为出、量力而行",
+        "借鉴不照搬、吸收再创新",
+        "增强决策前瞻性",
+        "针对实际情况，注重差异化施策"
+      ],
+      "negative": [
+        "脱离实际盲目决策",
+        "决策碎片化、朝令夕改",
+        "凭主观臆断拍板决策",
+        "违背规律强制推进项目建设",
+        "决策缺乏风险意识",
+        "超出财政承受能力搞建设",
+        "照搬照抄外地经验",
+        "决策缺乏前瞻性",
+        "决策搞一刀切"
+      ]
+    },
+    {
+      "id": "cat3",
+      "name": "发扬钉钉子精神，以抓铁有痕、踏石留印的劲头狠抓落实",
+      "short": "狠抓落实",
+      "positive": [
+        "坚持实效为王、实绩为要",
+        "坚持全周期管理，长效惠民",
+        "强化责任担当",
+        "坚持一张蓝图绘到底",
+        "不折不扣、全面准确执行政策",
+        "坚持常态化、长效化推进工作",
+        "平衡显绩与潜绩",
+        "做到令行禁止、落地见效",
+        "加强工作跟踪问效",
+        "服从上级部署、主动协同配合",
+        "注重产学研深度协同",
+        "健全跨层级协作机制",
+        "创新举措聚焦实际问题解决",
+        "立足实际需求开展创新",
+        "建立长效创新机制",
+        "优化创新资源配置",
+        "强化创新全链条管理",
+        "保持创新耐心与定力"
+      ],
+      "negative": [
+        "重形式轻实效",
+        "重引进轻培育、重建设轻管护",
+        "推诿扯皮、敷衍塞责",
+        "新官不理旧账",
+        "落实政策打折扣、搞变通",
+        "治理举措一阵风",
+        "重显绩轻潜绩",
+        "执行力度不足，虎头蛇尾",
+        "重部署轻督查",
+        "跨部门协作中各自为政",
+        "对待上级部署选择性执行",
+        "区域发展中搞恶性竞争",
+        "忽视产学研协同",
+        "创新搞花架子",
+        "创新脱离实际需求",
+        "创新资源配置失衡",
+        "忽视创新成果转化",
+        "创新中急于求成"
+      ]
+    },
+    {
+      "id": "cat4",
+      "name": "严守纪律规矩，弘扬良好作风，永葆清正廉洁的政治本色",
+      "short": "清正廉洁",
+      "positive": [
+        "坚决贯彻党中央决策部署",
+        "公平公正考核评价干部",
+        "规范资金使用管理",
+        "严格执行产业准入与环保标准",
+        "主动接受监督",
+        "以真实数据反映工作实绩",
+        "树立质量优先、效益至上的竞争导向",
+        "简化流程，减轻基层负担",
+        "坚持民主集中制",
+        "正视工作中的问题与短板",
+        "在项目建设与公务活动中厉行节约",
+        "多到一线调研走访",
+        "坚持低调务实、少说多干"
+      ],
+      "negative": [
+        "搞上有政策、下有对策",
+        "在干部考核中搞人情评分",
+        "在工作中搞特殊化、特权化",
+        "在项目建设中搞暗箱操作",
+        "违规挪用民生资金用于形象工程",
+        "纵容高污染、高耗能企业生产",
+        "拒绝、阻挠监督",
+        "搞数字造假、虚假政绩",
+        "搞内卷式竞争",
+        "搞形式主义，加重基层负担",
+        "决策搞一言堂",
+        "弄虚作假、瞒报谎报",
+        "在公务活动中讲排场、比阔气",
+        "急于求成、急于表功",
+        "在跨层级协作中上推下卸"
+      ]
+    },
+    {
+      "id": "cat5",
+      "name": "始终把人民放在心中最高位置，用心用情用力解决群众急难愁盼问题",
+      "short": "群众利益",
+      "positive": [
+        "坚持民生无小事",
+        "秉持实效优先推进政务服务创新",
+        "政策承诺与民生福利务必贴合实际",
+        "尊重群众主体地位",
+        "对待群众诉求要及时响应",
+        "推进公共服务精准化",
+        "民生项目坚持因地制宜、分类施策",
+        "依法保障群众合法权益",
+        "建立常态化民生诉求响应机制"
+      ],
+      "negative": [
+        "对群众急难愁盼问题推诿拖延",
+        "政务服务重表面创新轻实际效果",
+        "许诺超出承载能力的民生福利",
+        "政府大包大揽忽视群众主体地位",
+        "对待群众诉求态度冷漠、敷衍了事",
+        "公共服务供给同质化",
+        "在民生项目中搞一刀切",
+        "在群众面前摆官架子"
+      ]
+    },
+    {
+      "id": "cat6",
+      "name": "增强忧患意识、树立底线思维，有效防范化解各类风险挑战",
+      "short": "风险防范",
+      "positive": [
+        "强化债务风险防控意识",
+        "严守防范金融风险底线",
+        "筑牢生态风险防线",
+        "健全社会稳定风险评估机制",
+        "压实安全生产责任",
+        "提升风险应对能力",
+        "坚持正视风险、主动处置"
+      ],
+      "negative": [
+        "过度举债搞建设、上项目",
+        "产业发展中纵容违规金融操作",
+        "对高污染、高耗能项目审批把关不严",
+        "社会稳定风险评估流于形式",
+        "安全隐患排查整改不力",
+        "风险问题隐瞒不报、拖延处置"
+      ]
+    },
+    {
+      "id": "cat7",
+      "name": "健全科学考核评价体系，树立重实干、重实绩、重担当的鲜明导向",
+      "short": "考核评价",
+      "positive": [
+        "构建综合全面、科学合理的考核体系",
+        "坚持差异化考核",
+        "丰富考核方式方法",
+        "优化考核结果运用",
+        "精简考核频次与指标"
+      ],
+      "negative": [
+        "考核唯GDP论英雄",
+        "考核标准一刀切",
+        "考核过度依赖书面材料",
+        "搞人情考核、关系考核",
+        "忽视考核反馈",
+        "考核频率过高、指标过细"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel1",
+      "name": "稳和进的关系",
+      "short": "稳和进",
+      "intro": "稳和进辩证统一、相辅相成。稳中求进工作总基调是我们治国理政的重要原则。稳是大局、是基础、是前提，进是方向、是动能、是保障。",
+      "aspect1": {
+        "label": "以稳筑牢发展根基",
+        "text": "当今世界，多重挑战和危机交织叠加，我们必须保持战略定力，把稳定大局、稳定预期、稳定增长放在突出位置。党员干部要尊重客观规律和发展实际，不搞超越阶段的大干快上，不作寅吃卯粮的短期决策，避免因政策朝令夕改造成资源浪费、贻误发展。"
+      },
+      "aspect2": {
+        "label": "以进激发内生动力",
+        "text": "稳不是无所作为、停滞不前，而是在稳定基础上实现更高质量、更有效率、更可持续的发展。要找准进的切入点和发力点，牢牢把握高质量发展这个首要任务，在科技创新、产业升级、民生改善等关键领域主动作为、攻坚克难。"
+      },
+      "related_cats": [
+        "cat1",
+        "cat2",
+        "cat3"
+      ]
+    },
+    {
+      "id": "rel2",
+      "name": "立和破的关系",
+      "short": "立和破",
+      "intro": "破与立构成事物对立统一的两个方面。调整政策和推动改革要把握好时度效，坚持先立后破、稳扎稳打。",
+      "aspect1": {
+        "label": "以立固根本、强支撑",
+        "text": "立是立足长远、夯实基础，是把符合新发展理念、符合群众利益、符合长远大局的民生工程建起来、立得住。要立高质量发展导向、立为民服务宗旨、立系统施治策略、立绿色发展理念、立实干担当作风。"
+      },
+      "aspect2": {
+        "label": "以破除积弊、开新局",
+        "text": "破是破除障碍、革除弊端，打破思维定势和路径依赖。要坚决破除唯GDP、重显绩轻潜绩、重短期轻长远等错误政绩观，破除资源浪费、生态破坏、粗放发展的旧模式，破除推诿扯皮、敷衍塞责的坏风气。"
+      },
+      "related_cats": [
+        "cat2",
+        "cat3",
+        "cat4"
+      ]
+    },
+    {
+      "id": "rel3",
+      "name": "虚和实的关系",
+      "short": "虚和实",
+      "intro": "虚与实映照党性作风、检验政绩成色。业绩都是干出来的，真干才能真出业绩、出真业绩。虚指向理论指引、思想引领、价值导向，实指向实践行动、具体举措、实际成效。",
+      "aspect1": {
+        "label": "强化理论武装，以虚领航定向",
+        "text": "正确政绩观首先源于科学理论指引。要深学笃行习近平总书记关于树立和践行正确政绩观的重要论述，深刻把握政绩为谁而树、树什么样的政绩、靠什么树政绩这一根本性问题。以理论清醒保证政绩观端正，以政治坚定防止政绩观跑偏错位。"
+      },
+      "aspect2": {
+        "label": "崇尚实干担当，以实检验成效",
+        "text": "一切政绩最终要靠实践、靠实干、靠实效来体现。要坚决反对形式主义、官僚主义，不搞花拳绣腿、不做表面文章、不搞形象工程、政绩工程，把心思用在干事创业上，把精力投入到为民服务中。"
+      },
+      "related_cats": [
+        "cat1",
+        "cat3",
+        "cat4",
+        "cat5"
+      ]
+    },
+    {
+      "id": "rel4",
+      "name": "标和本的关系",
+      "short": "标和本",
+      "intro": "治标与治本体现着工作作风和工作方法，是衡量政绩观是否正确的重要标尺。治标是应急之举、解难之方，治本是源头治理、综合治理。",
+      "aspect1": {
+        "label": "以治标快速破题，化解突出矛盾",
+        "text": "治标是治本的前提，通过治标精准把握问题表象，为治本找准靶向。面对风险隐患集中的突出领域和群众反映强烈的痛点难点堵点问题，党员干部要反应迅速、果断出手、及时处置，快速稳定局面以回应民生关切。"
+      },
+      "aspect2": {
+        "label": "以治本固本培元，健全长效机制",
+        "text": "解决根本性、长远性、全局性问题，关键在治本。要透过现象看本质，从思想认识、制度规则、责任体系、权力运行上查根源、抓整改，把实践中的有效经验上升为体制机制，堵塞管理漏洞、补齐治理短板。"
+      },
+      "related_cats": [
+        "cat3",
+        "cat5",
+        "cat6"
+      ]
+    },
+    {
+      "id": "rel5",
+      "name": "近和远的关系",
+      "short": "近和远",
+      "intro": "当前与长远、显绩与潜绩，是新时代树立和践行正确政绩观必须处理好的重大关系。近与远的统一，就是兼顾当下见效与长远受益，统筹发展速度与发展质量。",
+      "aspect1": {
+        "label": "立足当前，抓实眼前显绩",
+        "text": "民生无小事，枝叶总关情。对群众关于就业、教育、医疗、养老、住房等迫切需求，对区域发展、项目建设、风险防范等紧迫任务，必须马上就办、真抓实干，以看得见、摸得着的变化回应群众期盼。"
+      },
+      "aspect2": {
+        "label": "着眼长远，厚植长期潜绩",
+        "text": "不谋万世者，不足谋一时。党员干部要保持历史耐心，胸怀功成不必在我、功成必定有我的境界，坚持一张蓝图绘到底、一茬接着一茬干，重视科技创新、人才培养、生态保护、文化传承、基层治理等潜绩工程。"
+      },
+      "related_cats": [
+        "cat1",
+        "cat3",
+        "cat6",
+        "cat7"
+      ]
+    }
+  ],
+  "graph_nodes": [
+    {
+      "id": "root",
+      "name": "正确政绩观",
+      "type": "root"
+    },
+    {
+      "id": "cat1",
+      "name": "以人民为中心",
+      "fullName": "树立正确政绩观，坚持以人民为中心的发展思想",
+      "type": "category"
+    },
+    {
+      "id": "cat2",
+      "name": "科学决策",
+      "fullName": "坚持实事求是，作出符合实际、遵循规律的科学决策",
+      "type": "category"
+    },
+    {
+      "id": "cat3",
+      "name": "狠抓落实",
+      "fullName": "发扬钉钉子精神，以抓铁有痕、踏石留印的劲头狠抓落实",
+      "type": "category"
+    },
+    {
+      "id": "cat4",
+      "name": "清正廉洁",
+      "fullName": "严守纪律规矩，弘扬良好作风，永葆清正廉洁的政治本色",
+      "type": "category"
+    },
+    {
+      "id": "cat5",
+      "name": "群众利益",
+      "fullName": "始终把人民放在心中最高位置，用心用情用力解决群众急难愁盼问题",
+      "type": "category"
+    },
+    {
+      "id": "cat6",
+      "name": "风险防范",
+      "fullName": "增强忧患意识、树立底线思维，有效防范化解各类风险挑战",
+      "type": "category"
+    },
+    {
+      "id": "cat7",
+      "name": "考核评价",
+      "fullName": "健全科学考核评价体系，树立重实干、重实绩、重担当的鲜明导向",
+      "type": "category"
+    },
+    {
+      "id": "cat1_p0",
+      "name": "树立统筹兼顾、综合施策的政绩导向",
+      "type": "positive",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_p1",
+      "name": "践行绿水青山就是金山银山理念",
+      "type": "positive",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_p2",
+      "name": "既做显绩，也做潜绩",
+      "type": "positive",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_p3",
+      "name": "坚守为民造福是最大政绩的初心",
+      "type": "positive",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_p4",
+      "name": "秉持功成不必在我、功成必定有我的理念",
+      "type": "positive",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_p5",
+      "name": "强化担当作为意识",
+      "type": "positive",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_p6",
+      "name": "重视本土特色资源与基础工作",
+      "type": "positive",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_p7",
+      "name": "树立全局一盘棋思想",
+      "type": "positive",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_p8",
+      "name": "强化跨部门协同意识",
+      "type": "positive",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_p9",
+      "name": "秉持良性竞争、合作共赢理念",
+      "type": "positive",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_p10",
+      "name": "秉持与时俱进、开拓创新理念",
+      "type": "positive",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_n0",
+      "name": "固守唯GDP论英雄",
+      "type": "negative",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_n1",
+      "name": "存在重开发轻保护的错误思维",
+      "type": "negative",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_n2",
+      "name": "存在急功近利心态",
+      "type": "negative",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_n3",
+      "name": "把工作当作个人升迁垫脚石",
+      "type": "negative",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_n4",
+      "name": "不愿接续前任合理工作",
+      "type": "negative",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_n5",
+      "name": "总认为多干多错、少干少错",
+      "type": "negative",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_n6",
+      "name": "认为小产业、小民生无政绩",
+      "type": "negative",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_n7",
+      "name": "将单一领域成效等同于整体政绩",
+      "type": "negative",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_n8",
+      "name": "搞本位主义，忽视区域协同、产业联动",
+      "type": "negative",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_n9",
+      "name": "不愿主动担当补位",
+      "type": "negative",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_n10",
+      "name": "因循守旧、故步自封",
+      "type": "negative",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat1_n11",
+      "name": "搞一阵风式创新",
+      "type": "negative",
+      "catId": "cat1"
+    },
+    {
+      "id": "cat2_p0",
+      "name": "坚持实事求是、因地制宜",
+      "type": "positive",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_p1",
+      "name": "强化系统思维",
+      "type": "positive",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_p2",
+      "name": "坚持从群众中来、到群众中去",
+      "type": "positive",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_p3",
+      "name": "决策要尊重规律",
+      "type": "positive",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_p4",
+      "name": "树立底线思维",
+      "type": "positive",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_p5",
+      "name": "坚持量入为出、量力而行",
+      "type": "positive",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_p6",
+      "name": "借鉴不照搬、吸收再创新",
+      "type": "positive",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_p7",
+      "name": "增强决策前瞻性",
+      "type": "positive",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_p8",
+      "name": "针对实际情况，注重差异化施策",
+      "type": "positive",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_n0",
+      "name": "脱离实际盲目决策",
+      "type": "negative",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_n1",
+      "name": "决策碎片化、朝令夕改",
+      "type": "negative",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_n2",
+      "name": "凭主观臆断拍板决策",
+      "type": "negative",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_n3",
+      "name": "违背规律强制推进项目建设",
+      "type": "negative",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_n4",
+      "name": "决策缺乏风险意识",
+      "type": "negative",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_n5",
+      "name": "超出财政承受能力搞建设",
+      "type": "negative",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_n6",
+      "name": "照搬照抄外地经验",
+      "type": "negative",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_n7",
+      "name": "决策缺乏前瞻性",
+      "type": "negative",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat2_n8",
+      "name": "决策搞一刀切",
+      "type": "negative",
+      "catId": "cat2"
+    },
+    {
+      "id": "cat3_p0",
+      "name": "坚持实效为王、实绩为要",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p1",
+      "name": "坚持全周期管理，长效惠民",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p2",
+      "name": "强化责任担当",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p3",
+      "name": "坚持一张蓝图绘到底",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p4",
+      "name": "不折不扣、全面准确执行政策",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p5",
+      "name": "坚持常态化、长效化推进工作",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p6",
+      "name": "平衡显绩与潜绩",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p7",
+      "name": "做到令行禁止、落地见效",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p8",
+      "name": "加强工作跟踪问效",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p9",
+      "name": "服从上级部署、主动协同配合",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p10",
+      "name": "注重产学研深度协同",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p11",
+      "name": "健全跨层级协作机制",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p12",
+      "name": "创新举措聚焦实际问题解决",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p13",
+      "name": "立足实际需求开展创新",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p14",
+      "name": "建立长效创新机制",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p15",
+      "name": "优化创新资源配置",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p16",
+      "name": "强化创新全链条管理",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_p17",
+      "name": "保持创新耐心与定力",
+      "type": "positive",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n0",
+      "name": "重形式轻实效",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n1",
+      "name": "重引进轻培育、重建设轻管护",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n2",
+      "name": "推诿扯皮、敷衍塞责",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n3",
+      "name": "新官不理旧账",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n4",
+      "name": "落实政策打折扣、搞变通",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n5",
+      "name": "治理举措一阵风",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n6",
+      "name": "重显绩轻潜绩",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n7",
+      "name": "执行力度不足，虎头蛇尾",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n8",
+      "name": "重部署轻督查",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n9",
+      "name": "跨部门协作中各自为政",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n10",
+      "name": "对待上级部署选择性执行",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n11",
+      "name": "区域发展中搞恶性竞争",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n12",
+      "name": "忽视产学研协同",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n13",
+      "name": "创新搞花架子",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n14",
+      "name": "创新脱离实际需求",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n15",
+      "name": "创新资源配置失衡",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n16",
+      "name": "忽视创新成果转化",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat3_n17",
+      "name": "创新中急于求成",
+      "type": "negative",
+      "catId": "cat3"
+    },
+    {
+      "id": "cat4_p0",
+      "name": "坚决贯彻党中央决策部署",
+      "type": "positive",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_p1",
+      "name": "公平公正考核评价干部",
+      "type": "positive",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_p2",
+      "name": "规范资金使用管理",
+      "type": "positive",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_p3",
+      "name": "严格执行产业准入与环保标准",
+      "type": "positive",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_p4",
+      "name": "主动接受监督",
+      "type": "positive",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_p5",
+      "name": "以真实数据反映工作实绩",
+      "type": "positive",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_p6",
+      "name": "树立质量优先、效益至上的竞争导向",
+      "type": "positive",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_p7",
+      "name": "简化流程，减轻基层负担",
+      "type": "positive",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_p8",
+      "name": "坚持民主集中制",
+      "type": "positive",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_p9",
+      "name": "正视工作中的问题与短板",
+      "type": "positive",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_p10",
+      "name": "在项目建设与公务活动中厉行节约",
+      "type": "positive",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_p11",
+      "name": "多到一线调研走访",
+      "type": "positive",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_p12",
+      "name": "坚持低调务实、少说多干",
+      "type": "positive",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_n0",
+      "name": "搞上有政策、下有对策",
+      "type": "negative",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_n1",
+      "name": "在干部考核中搞人情评分",
+      "type": "negative",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_n2",
+      "name": "在工作中搞特殊化、特权化",
+      "type": "negative",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_n3",
+      "name": "在项目建设中搞暗箱操作",
+      "type": "negative",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_n4",
+      "name": "违规挪用民生资金用于形象工程",
+      "type": "negative",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_n5",
+      "name": "纵容高污染、高耗能企业生产",
+      "type": "negative",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_n6",
+      "name": "拒绝、阻挠监督",
+      "type": "negative",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_n7",
+      "name": "搞数字造假、虚假政绩",
+      "type": "negative",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_n8",
+      "name": "搞内卷式竞争",
+      "type": "negative",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_n9",
+      "name": "搞形式主义，加重基层负担",
+      "type": "negative",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_n10",
+      "name": "决策搞一言堂",
+      "type": "negative",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_n11",
+      "name": "弄虚作假、瞒报谎报",
+      "type": "negative",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_n12",
+      "name": "在公务活动中讲排场、比阔气",
+      "type": "negative",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_n13",
+      "name": "急于求成、急于表功",
+      "type": "negative",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat4_n14",
+      "name": "在跨层级协作中上推下卸",
+      "type": "negative",
+      "catId": "cat4"
+    },
+    {
+      "id": "cat5_p0",
+      "name": "坚持民生无小事",
+      "type": "positive",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_p1",
+      "name": "秉持实效优先推进政务服务创新",
+      "type": "positive",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_p2",
+      "name": "政策承诺与民生福利务必贴合实际",
+      "type": "positive",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_p3",
+      "name": "尊重群众主体地位",
+      "type": "positive",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_p4",
+      "name": "对待群众诉求要及时响应",
+      "type": "positive",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_p5",
+      "name": "推进公共服务精准化",
+      "type": "positive",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_p6",
+      "name": "民生项目坚持因地制宜、分类施策",
+      "type": "positive",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_p7",
+      "name": "依法保障群众合法权益",
+      "type": "positive",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_p8",
+      "name": "建立常态化民生诉求响应机制",
+      "type": "positive",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_n0",
+      "name": "对群众急难愁盼问题推诿拖延",
+      "type": "negative",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_n1",
+      "name": "政务服务重表面创新轻实际效果",
+      "type": "negative",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_n2",
+      "name": "许诺超出承载能力的民生福利",
+      "type": "negative",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_n3",
+      "name": "政府大包大揽忽视群众主体地位",
+      "type": "negative",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_n4",
+      "name": "对待群众诉求态度冷漠、敷衍了事",
+      "type": "negative",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_n5",
+      "name": "公共服务供给同质化",
+      "type": "negative",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_n6",
+      "name": "在民生项目中搞一刀切",
+      "type": "negative",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat5_n7",
+      "name": "在群众面前摆官架子",
+      "type": "negative",
+      "catId": "cat5"
+    },
+    {
+      "id": "cat6_p0",
+      "name": "强化债务风险防控意识",
+      "type": "positive",
+      "catId": "cat6"
+    },
+    {
+      "id": "cat6_p1",
+      "name": "严守防范金融风险底线",
+      "type": "positive",
+      "catId": "cat6"
+    },
+    {
+      "id": "cat6_p2",
+      "name": "筑牢生态风险防线",
+      "type": "positive",
+      "catId": "cat6"
+    },
+    {
+      "id": "cat6_p3",
+      "name": "健全社会稳定风险评估机制",
+      "type": "positive",
+      "catId": "cat6"
+    },
+    {
+      "id": "cat6_p4",
+      "name": "压实安全生产责任",
+      "type": "positive",
+      "catId": "cat6"
+    },
+    {
+      "id": "cat6_p5",
+      "name": "提升风险应对能力",
+      "type": "positive",
+      "catId": "cat6"
+    },
+    {
+      "id": "cat6_p6",
+      "name": "坚持正视风险、主动处置",
+      "type": "positive",
+      "catId": "cat6"
+    },
+    {
+      "id": "cat6_n0",
+      "name": "过度举债搞建设、上项目",
+      "type": "negative",
+      "catId": "cat6"
+    },
+    {
+      "id": "cat6_n1",
+      "name": "产业发展中纵容违规金融操作",
+      "type": "negative",
+      "catId": "cat6"
+    },
+    {
+      "id": "cat6_n2",
+      "name": "对高污染、高耗能项目审批把关不严",
+      "type": "negative",
+      "catId": "cat6"
+    },
+    {
+      "id": "cat6_n3",
+      "name": "社会稳定风险评估流于形式",
+      "type": "negative",
+      "catId": "cat6"
+    },
+    {
+      "id": "cat6_n4",
+      "name": "安全隐患排查整改不力",
+      "type": "negative",
+      "catId": "cat6"
+    },
+    {
+      "id": "cat6_n5",
+      "name": "风险问题隐瞒不报、拖延处置",
+      "type": "negative",
+      "catId": "cat6"
+    },
+    {
+      "id": "cat7_p0",
+      "name": "构建综合全面、科学合理的考核体系",
+      "type": "positive",
+      "catId": "cat7"
+    },
+    {
+      "id": "cat7_p1",
+      "name": "坚持差异化考核",
+      "type": "positive",
+      "catId": "cat7"
+    },
+    {
+      "id": "cat7_p2",
+      "name": "丰富考核方式方法",
+      "type": "positive",
+      "catId": "cat7"
+    },
+    {
+      "id": "cat7_p3",
+      "name": "优化考核结果运用",
+      "type": "positive",
+      "catId": "cat7"
+    },
+    {
+      "id": "cat7_p4",
+      "name": "精简考核频次与指标",
+      "type": "positive",
+      "catId": "cat7"
+    },
+    {
+      "id": "cat7_n0",
+      "name": "考核唯GDP论英雄",
+      "type": "negative",
+      "catId": "cat7"
+    },
+    {
+      "id": "cat7_n1",
+      "name": "考核标准一刀切",
+      "type": "negative",
+      "catId": "cat7"
+    },
+    {
+      "id": "cat7_n2",
+      "name": "考核过度依赖书面材料",
+      "type": "negative",
+      "catId": "cat7"
+    },
+    {
+      "id": "cat7_n3",
+      "name": "搞人情考核、关系考核",
+      "type": "negative",
+      "catId": "cat7"
+    },
+    {
+      "id": "cat7_n4",
+      "name": "忽视考核反馈",
+      "type": "negative",
+      "catId": "cat7"
+    },
+    {
+      "id": "cat7_n5",
+      "name": "考核频率过高、指标过细",
+      "type": "negative",
+      "catId": "cat7"
+    },
+    {
+      "id": "rel1",
+      "name": "稳和进",
+      "fullName": "稳和进的关系",
+      "type": "relation"
+    },
+    {
+      "id": "rel2",
+      "name": "立和破",
+      "fullName": "立和破的关系",
+      "type": "relation"
+    },
+    {
+      "id": "rel3",
+      "name": "虚和实",
+      "fullName": "虚和实的关系",
+      "type": "relation"
+    },
+    {
+      "id": "rel4",
+      "name": "标和本",
+      "fullName": "标和本的关系",
+      "type": "relation"
+    },
+    {
+      "id": "rel5",
+      "name": "近和远",
+      "fullName": "近和远的关系",
+      "type": "relation"
+    }
+  ],
+  "graph_links": [
+    {
+      "source": "root",
+      "target": "cat1",
+      "type": "cat_link"
+    },
+    {
+      "source": "root",
+      "target": "cat2",
+      "type": "cat_link"
+    },
+    {
+      "source": "root",
+      "target": "cat3",
+      "type": "cat_link"
+    },
+    {
+      "source": "root",
+      "target": "cat4",
+      "type": "cat_link"
+    },
+    {
+      "source": "root",
+      "target": "cat5",
+      "type": "cat_link"
+    },
+    {
+      "source": "root",
+      "target": "cat6",
+      "type": "cat_link"
+    },
+    {
+      "source": "root",
+      "target": "cat7",
+      "type": "cat_link"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_p0",
+      "type": "positive"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_p1",
+      "type": "positive"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_p2",
+      "type": "positive"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_p3",
+      "type": "positive"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_p4",
+      "type": "positive"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_p5",
+      "type": "positive"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_p6",
+      "type": "positive"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_p7",
+      "type": "positive"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_p8",
+      "type": "positive"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_p9",
+      "type": "positive"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_p10",
+      "type": "positive"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_n0",
+      "type": "negative"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_n1",
+      "type": "negative"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_n2",
+      "type": "negative"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_n3",
+      "type": "negative"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_n4",
+      "type": "negative"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_n5",
+      "type": "negative"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_n6",
+      "type": "negative"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_n7",
+      "type": "negative"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_n8",
+      "type": "negative"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_n9",
+      "type": "negative"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_n10",
+      "type": "negative"
+    },
+    {
+      "source": "cat1",
+      "target": "cat1_n11",
+      "type": "negative"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_p0",
+      "type": "positive"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_p1",
+      "type": "positive"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_p2",
+      "type": "positive"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_p3",
+      "type": "positive"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_p4",
+      "type": "positive"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_p5",
+      "type": "positive"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_p6",
+      "type": "positive"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_p7",
+      "type": "positive"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_p8",
+      "type": "positive"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_n0",
+      "type": "negative"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_n1",
+      "type": "negative"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_n2",
+      "type": "negative"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_n3",
+      "type": "negative"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_n4",
+      "type": "negative"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_n5",
+      "type": "negative"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_n6",
+      "type": "negative"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_n7",
+      "type": "negative"
+    },
+    {
+      "source": "cat2",
+      "target": "cat2_n8",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p0",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p1",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p2",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p3",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p4",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p5",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p6",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p7",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p8",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p9",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p10",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p11",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p12",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p13",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p14",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p15",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p16",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_p17",
+      "type": "positive"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n0",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n1",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n2",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n3",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n4",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n5",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n6",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n7",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n8",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n9",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n10",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n11",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n12",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n13",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n14",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n15",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n16",
+      "type": "negative"
+    },
+    {
+      "source": "cat3",
+      "target": "cat3_n17",
+      "type": "negative"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_p0",
+      "type": "positive"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_p1",
+      "type": "positive"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_p2",
+      "type": "positive"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_p3",
+      "type": "positive"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_p4",
+      "type": "positive"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_p5",
+      "type": "positive"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_p6",
+      "type": "positive"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_p7",
+      "type": "positive"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_p8",
+      "type": "positive"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_p9",
+      "type": "positive"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_p10",
+      "type": "positive"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_p11",
+      "type": "positive"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_p12",
+      "type": "positive"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_n0",
+      "type": "negative"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_n1",
+      "type": "negative"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_n2",
+      "type": "negative"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_n3",
+      "type": "negative"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_n4",
+      "type": "negative"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_n5",
+      "type": "negative"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_n6",
+      "type": "negative"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_n7",
+      "type": "negative"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_n8",
+      "type": "negative"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_n9",
+      "type": "negative"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_n10",
+      "type": "negative"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_n11",
+      "type": "negative"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_n12",
+      "type": "negative"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_n13",
+      "type": "negative"
+    },
+    {
+      "source": "cat4",
+      "target": "cat4_n14",
+      "type": "negative"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_p0",
+      "type": "positive"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_p1",
+      "type": "positive"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_p2",
+      "type": "positive"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_p3",
+      "type": "positive"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_p4",
+      "type": "positive"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_p5",
+      "type": "positive"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_p6",
+      "type": "positive"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_p7",
+      "type": "positive"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_p8",
+      "type": "positive"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_n0",
+      "type": "negative"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_n1",
+      "type": "negative"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_n2",
+      "type": "negative"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_n3",
+      "type": "negative"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_n4",
+      "type": "negative"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_n5",
+      "type": "negative"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_n6",
+      "type": "negative"
+    },
+    {
+      "source": "cat5",
+      "target": "cat5_n7",
+      "type": "negative"
+    },
+    {
+      "source": "cat6",
+      "target": "cat6_p0",
+      "type": "positive"
+    },
+    {
+      "source": "cat6",
+      "target": "cat6_p1",
+      "type": "positive"
+    },
+    {
+      "source": "cat6",
+      "target": "cat6_p2",
+      "type": "positive"
+    },
+    {
+      "source": "cat6",
+      "target": "cat6_p3",
+      "type": "positive"
+    },
+    {
+      "source": "cat6",
+      "target": "cat6_p4",
+      "type": "positive"
+    },
+    {
+      "source": "cat6",
+      "target": "cat6_p5",
+      "type": "positive"
+    },
+    {
+      "source": "cat6",
+      "target": "cat6_p6",
+      "type": "positive"
+    },
+    {
+      "source": "cat6",
+      "target": "cat6_n0",
+      "type": "negative"
+    },
+    {
+      "source": "cat6",
+      "target": "cat6_n1",
+      "type": "negative"
+    },
+    {
+      "source": "cat6",
+      "target": "cat6_n2",
+      "type": "negative"
+    },
+    {
+      "source": "cat6",
+      "target": "cat6_n3",
+      "type": "negative"
+    },
+    {
+      "source": "cat6",
+      "target": "cat6_n4",
+      "type": "negative"
+    },
+    {
+      "source": "cat6",
+      "target": "cat6_n5",
+      "type": "negative"
+    },
+    {
+      "source": "cat7",
+      "target": "cat7_p0",
+      "type": "positive"
+    },
+    {
+      "source": "cat7",
+      "target": "cat7_p1",
+      "type": "positive"
+    },
+    {
+      "source": "cat7",
+      "target": "cat7_p2",
+      "type": "positive"
+    },
+    {
+      "source": "cat7",
+      "target": "cat7_p3",
+      "type": "positive"
+    },
+    {
+      "source": "cat7",
+      "target": "cat7_p4",
+      "type": "positive"
+    },
+    {
+      "source": "cat7",
+      "target": "cat7_n0",
+      "type": "negative"
+    },
+    {
+      "source": "cat7",
+      "target": "cat7_n1",
+      "type": "negative"
+    },
+    {
+      "source": "cat7",
+      "target": "cat7_n2",
+      "type": "negative"
+    },
+    {
+      "source": "cat7",
+      "target": "cat7_n3",
+      "type": "negative"
+    },
+    {
+      "source": "cat7",
+      "target": "cat7_n4",
+      "type": "negative"
+    },
+    {
+      "source": "cat7",
+      "target": "cat7_n5",
+      "type": "negative"
+    },
+    {
+      "source": "root",
+      "target": "rel1",
+      "type": "rel_link"
+    },
+    {
+      "source": "rel1",
+      "target": "cat1",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "rel1",
+      "target": "cat2",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "rel1",
+      "target": "cat3",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "root",
+      "target": "rel2",
+      "type": "rel_link"
+    },
+    {
+      "source": "rel2",
+      "target": "cat2",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "rel2",
+      "target": "cat3",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "rel2",
+      "target": "cat4",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "root",
+      "target": "rel3",
+      "type": "rel_link"
+    },
+    {
+      "source": "rel3",
+      "target": "cat1",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "rel3",
+      "target": "cat3",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "rel3",
+      "target": "cat4",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "rel3",
+      "target": "cat5",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "root",
+      "target": "rel4",
+      "type": "rel_link"
+    },
+    {
+      "source": "rel4",
+      "target": "cat3",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "rel4",
+      "target": "cat5",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "rel4",
+      "target": "cat6",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "root",
+      "target": "rel5",
+      "type": "rel_link"
+    },
+    {
+      "source": "rel5",
+      "target": "cat1",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "rel5",
+      "target": "cat3",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "rel5",
+      "target": "cat6",
+      "type": "rel_to_cat"
+    },
+    {
+      "source": "rel5",
+      "target": "cat7",
+      "type": "rel_to_cat"
+    }
+  ]
+}

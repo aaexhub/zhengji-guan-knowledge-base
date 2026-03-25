@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>树立和践行正确政绩观知识图谱</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+:root {
+  --red: #C41E24;
+  --red-light: #E53935;
+  --gold: #D4A843;
+  --gold-light: #F0D68A;
+  --gold-dim: #8B7035;
+  --dark-bg: #1a1a2e;
+  --dark-card: #252540;
+  --dark-text: #e0e0e0;
+  --dark-border: #3a3a5c;
+  --positive: #2E7D32;
+  --positive-bg: #1B5E20;
+  --negative: #C62828;
+  --negative-bg: #7f1d1d;
+  --relation: #1565C0;
+  --light-bg: #f5f0e8;
+  --light-card: #ffffff;
+  --light-text: #2c2c2c;
+  --light-border: #d4c9a8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif; transition: background 0.3s, color 0.3s; }
+body.dark { background: var(--dark-bg); color: var(--dark-text); }
+body.light { background: var(--light-bg); color: var(--light-text); }
+
+/* Header */
+.header { background: linear-gradient(135deg, #8B0000, #C41E24, #D4A843); padding: 16px 20px; text-align: center; position: relative; }
+.header h1 { color: #fff; font-size: 22px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); letter-spacing: 3px; }
+.header .subtitle { color: var(--gold-light); font-size: 13px; margin-top: 4px; opacity: 0.9; }
+.theme-toggle { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 13px; }
+.theme-toggle:hover { background: rgba(255,255,255,0.3); }
+
+/* Navigation */
+.nav { display: flex; overflow-x: auto; padding: 8px 12px; gap: 6px; border-bottom: 1px solid var(--dark-border); -webkit-overflow-scrolling: touch; }
+body.light .nav { border-color: var(--light-border); }
+.nav-btn { flex-shrink: 0; padding: 8px 16px; border: 1px solid var(--dark-border); border-radius: 20px; background: transparent; color: inherit; cursor: pointer; font-size: 13px; white-space: nowrap; transition: all 0.2s; }
+.nav-btn:hover { border-color: var(--gold); color: var(--gold); }
+.nav-btn.active { background: var(--red); color: #fff; border-color: var(--red); }
+
+/* Search */
+.search-bar { padding: 8px 12px; display: flex; gap: 8px; }
+body.light .search-bar { border-bottom: 1px solid var(--light-border); }
+body.dark .search-bar { border-bottom: 1px solid var(--dark-border); }
+.search-bar input { flex: 1; padding: 8px 14px; border-radius: 20px; border: 1px solid var(--dark-border); background: var(--dark-card); color: inherit; font-size: 14px; outline: none; }
+body.light .search-bar input { border-color: var(--light-border); background: #fff; }
+.search-bar input:focus { border-color: var(--gold); }
+.search-bar button { padding: 8px 16px; border-radius: 20px; border: none; background: var(--red); color: #fff; cursor: pointer; font-size: 13px; }
+
+/* Main content */
+.main { display: flex; height: calc(100vh - 120px); overflow: hidden; }
+.graph-container { flex: 1; position: relative; overflow: hidden; }
+.graph-container svg { width: 100%; height: 100%; }
+
+/* Detail panel */
+.detail-panel { width: 0; overflow: hidden; transition: width 0.3s; background: var(--dark-card); border-left: 1px solid var(--dark-border); }
+body.light .detail-panel { background: var(--light-card); border-color: var(--light-border); }
+.detail-panel.open { width: 380px; }
+.detail-content { padding: 20px; width: 380px; }
+.detail-close { background: none; border: none; color: inherit; font-size: 22px; cursor: pointer; float: right; line-height: 1; }
+.detail-close:hover { color: var(--red); }
+.detail-tag { display: inline-block; padding: 3px 10px; border-radius: 10px; font-size: 12px; margin-bottom: 10px; }
+.detail-tag.positive { background: var(--positive-bg); color: #A5D6A7; }
+.detail-tag.negative { background: var(--negative-bg); color: #EF9A9A; }
+.detail-tag.category { background: var(--gold-dim); color: var(--gold-light); }
+.detail-tag.relation { background: #0D47A1; color: #90CAF9; }
+.detail-name { font-size: 18px; font-weight: bold; margin-bottom: 8px; line-height: 1.4; }
+.detail-fullname { font-size: 13px; opacity: 0.7; margin-bottom: 16px; line-height: 1.5; }
+
+/* Items list */
+.items-section { margin-top: 16px; }
+.items-section h3 { font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.items-section h3 .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.items-section ul { list-style: none; padding: 0; }
+.items-section li { padding: 8px 12px; margin: 4px 0; border-radius: 8px; font-size: 13px; line-height: 1.5; cursor: pointer; transition: background 0.2s; }
+.items-section li:hover { filter: brightness(1.1); }
+.items-section li.pos-item { background: rgba(46,125,50,0.15); border-left: 3px solid var(--positive); }
+.items-section li.neg-item { background: rgba(198,40,40,0.15); border-left: 3px solid var(--negative); }
+body.light .items-section li.pos-item { background: rgba(46,125,50,0.08); }
+body.light .items-section li.neg-item { background: rgba(198,40,40,0.08); }
+
+/* Toggle buttons for pos/neg */
+.toggle-group { display: flex; gap: 8px; margin-bottom: 12px; }
+.toggle-btn { flex: 1; padding: 8px; border-radius: 8px; border: 2px solid transparent; text-align: center; cursor: pointer; font-size: 13px; font-weight: bold; transition: all 0.2s; }
+.toggle-btn.pos { border-color: var(--positive); color: var(--positive); }
+.toggle-btn.pos.active { background: var(--positive); color: #fff; }
+.toggle-btn.neg { border-color: var(--negative); color: var(--negative); }
+.toggle-btn.neg.active { background: var(--negative); color: #fff; }
+
+/* Relations page */
+.relations-page { display: none; height: 100%; overflow-y: auto; padding: 20px; }
+.relations-page.active { display: block; }
+.rel-card { background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: 12px; padding: 20px; margin-bottom: 16px; transition: all 0.2s; }
+body.light .rel-card { background: var(--light-card); border-color: var(--light-border); }
+.rel-card:hover { border-color: var(--gold); }
+.rel-card h3 { color: var(--gold); font-size: 17px; margin-bottom: 8px; }
+.rel-card .rel-intro { font-size: 13px; opacity: 0.8; margin-bottom: 16px; line-height: 1.6; }
+.rel-aspects { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.rel-aspect { padding: 14px; border-radius: 10px; font-size: 13px; line-height: 1.6; }
+.rel-aspect.a1 { background: rgba(21,101,192,0.15); border-top: 3px solid #1565C0; }
+.rel-aspect.a2 { background: rgba(212,168,67,0.15); border-top: 3px solid var(--gold); }
+body.light .rel-aspect.a1 { background: rgba(21,101,192,0.06); }
+body.light .rel-aspect.a2 { background: rgba(212,168,67,0.06); }
+.rel-aspect h4 { font-size: 14px; margin-bottom: 8px; }
+.rel-aspect.a1 h4 { color: #42A5F5; }
+.rel-aspect.a2 h4 { color: var(--gold); }
+.rel-tags { margin-top: 12px; }
+.rel-tags span { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; background: rgba(196,30,36,0.15); color: var(--red-light); margin: 2px; }
+body.light .rel-tags span { background: rgba(196,30,36,0.08); color: var(--red); }
+
+/* D3 styles */
+.link { stroke-opacity: 0.4; }
+.link.cat-link { stroke: var(--gold); stroke-width: 2; }
+.link.rel-link { stroke: #1565C0; stroke-width: 1.5; stroke-dasharray: 5,3; }
+.link.rel-to-cat { stroke: #1565C0; stroke-width: 1; stroke-dasharray: 3,3; stroke-opacity: 0.25; }
+.link.positive { stroke: var(--positive); stroke-width: 1; }
+.link.negative { stroke: var(--negative); stroke-width: 1; }
+
+.node circle { cursor: pointer; transition: filter 0.2s; }
+.node:hover circle { filter: brightness(1.3); }
+.node text { font-size: 12px; pointer-events: none; }
+.node.root circle { fill: var(--red); filter: drop-shadow(0 0 8px rgba(196,30,36,0.6)); }
+.node.root text { fill: #fff; font-size: 14px; font-weight: bold; }
+.node.category circle { fill: var(--gold); stroke: #fff; stroke-width: 2; }
+.node.category text { fill: var(--dark-text); font-size: 11px; font-weight: bold; }
+body.light .node.category text { fill: var(--light-text); }
+.node.positive circle { fill: var(--positive); }
+.node.negative circle { fill: var(--negative); }
+.node.positive text, .node.negative text { fill: var(--dark-text); font-size: 9px; }
+body.light .node.positive text, body.light .node.negative text { fill: var(--light-text); }
+.node.relation circle { fill: #1565C0; stroke: #fff; stroke-width: 1.5; }
+.node.relation text { fill: var(--dark-text); font-size: 11px; }
+body.light .node.relation text { fill: var(--light-text); }
+
+.node.dimmed circle { opacity: 0.15; }
+.node.dimmed text { opacity: 0.15; }
+.node.highlighted circle { filter: drop-shadow(0 0 6px rgba(212,168,67,0.8)); }
+.link.dimmed { opacity: 0.05; }
+
+/* Legend */
+.legend { position: absolute; bottom: 12px; left: 12px; display: flex; gap: 12px; flex-wrap: wrap; font-size: 11px; padding: 8px 12px; border-radius: 8px; }
+body.dark .legend { background: rgba(26,26,46,0.9); }
+body.light .legend { background: rgba(255,255,255,0.9); }
+.legend-item { display: flex; align-items: center; gap: 4px; }
+.legend-item .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+/* Stats */
+.stats-bar { display: flex; justify-content: center; gap: 20px; padding: 6px; font-size: 12px; opacity: 0.7; }
+body.dark .stats-bar { border-bottom: 1px solid var(--dark-border); }
+body.light .stats-bar { border-bottom: 1px solid var(--light-border); }
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .header h1 { font-size: 17px; letter-spacing: 1px; }
+  .detail-panel.open { width: 100%; position: absolute; right: 0; top: 0; height: 100%; z-index: 10; }
+  .detail-content { width: 100%; }
+  .rel-aspects { grid-template-columns: 1fr; }
+  .main { flex-direction: column; }
+  .graph-container { height: 100%; }
+}
+
+/* Graph controls */
+.graph-controls { position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; z-index: 5; }
+.graph-btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--dark-border); background: var(--dark-card); color: inherit; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; }
+body.light .graph-btn { border-color: var(--light-border); background: #fff; }
+.graph-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Search results */
+.search-results { position: absolute; top: 50px; left: 12px; right: 12px; max-height: 300px; overflow-y: auto; border-radius: 12px; z-index: 20; display: none; }
+.search-results.show { display: block; }
+body.dark .search-results { background: var(--dark-card); border: 1px solid var(--dark-border); }
+body.light .search-results { background: #fff; border: 1px solid var(--light-border); }
+.search-result-item { padding: 10px 14px; cursor: pointer; font-size: 13px; border-bottom: 1px solid var(--dark-border); }
+body.light .search-result-item { border-bottom-color: var(--light-border); }
+.search-result-item:hover { background: rgba(212,168,67,0.1); }
+.search-result-item:last-child { border-bottom: none; }
+.search-result-item .sr-type { font-size: 11px; opacity: 0.6; }
+.search-result-item .sr-name { margin-top: 2px; }
+
+/* Transition helpers */
+.fade-enter { animation: fadeIn 0.3s; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+</style>
+</head>
+<body class="dark">
+
+<div class="header">
+  <h1>树立和践行正确政绩观知识图谱</h1>
+  <div class="subtitle">正负面清单 · 五对关系 · 交互式可视化</div>
+  <button class="theme-toggle" onclick="toggleTheme()">☀ 浅色</button>
+</div>
+
+<div class="stats-bar">
+  <span>7 大类</span>
+  <span id="stat-pos"></span>
+  <span id="stat-neg"></span>
+  <span>5 对关系</span>
+  <span id="stat-total"></span>
+</div>
+
+<div class="nav" id="nav">
+  <button class="nav-btn active" onclick="showGraph('all')">全部图谱</button>
+  <button class="nav-btn" onclick="showGraph('cat1')">以人民为中心</button>
+  <button class="nav-btn" onclick="showGraph('cat2')">科学决策</button>
+  <button class="nav-btn" onclick="showGraph('cat3')">狠抓落实</button>
+  <button class="nav-btn" onclick="showGraph('cat4')">清正廉洁</button>
+  <button class="nav-btn" onclick="showGraph('cat5')">群众利益</button>
+  <button class="nav-btn" onclick="showGraph('cat6')">风险防范</button>
+  <button class="nav-btn" onclick="showGraph('cat7')">考核评价</button>
+  <button class="nav-btn" onclick="showRelations()">五对关系</button>
+</div>
+
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="搜索关键词..." oninput="handleSearch(this.value)">
+  <button onclick="clearSearch()">清除</button>
+</div>
+
+<div class="main">
+  <div class="graph-container" id="graphContainer">
+    <svg id="graphSvg"></svg>
+    <div class="graph-controls">
+      <button class="graph-btn" onclick="zoomIn()" title="放大">+</button>
+      <button class="graph-btn" onclick="zoomOut()" title="缩小">−</button>
+      <button class="graph-btn" onclick="resetZoom()" title="重置">⟲</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+    <div class="legend">
+      <div class="legend-item"><div class="dot" style="background:#C41E24"></div>核心</div>
+      <div class="legend-item"><div class="dot" style="background:#D4A843"></div>大类</div>
+      <div class="legend-item"><div class="dot" style="background:#2E7D32"></div>正面</div>
+      <div class="legend-item"><div class="dot" style="background:#C62828"></div>负面</div>
+      <div class="legend-item"><div class="dot" style="background:#1565C0"></div>关系</div>
+    </div>
+  </div>
+  <div class="detail-panel" id="detailPanel">
+    <div class="detail-content" id="detailContent"></div>
+  </div>
+  <div class="relations-page" id="relationsPage"></div>
+</div>
+
+<script>
+// Load data
+let DATA;
+fetch('atlas-data.json').then(r=>r.json()).then(d => { DATA=d; init(); });
+
+let simulation, svg, g, zoom, currentFilter='all';
+
+function init() {
+  // Stats
+  const totalPos = DATA.categories.reduce((s,c)=>s+c.positive.length,0);
+  const totalNeg = DATA.categories.reduce((s,c)=>s+c.negative.length,0);
+  document.getElementById('stat-pos').textContent = `正面 ${totalPos} 条`;
+  document.getElementById('stat-neg').textContent = `负面 ${totalNeg} 条`;
+  document.getElementById('stat-total').textContent = `共 ${totalPos+totalNeg} 条`;
+
+  // Build relations page
+  buildRelationsPage();
+
+  // Init D3
+  svg = d3.select('#graphSvg');
+  const container = document.getElementById('graphContainer');
+  const w = container.clientWidth;
+  const h = container.clientHeight;
+  svg.attr('viewBox', `0 0 ${w} ${h}`);
+
+  zoom = d3.zoom()
+    .scaleExtent([0.2, 4])
+    .on('zoom', (e) => g.attr('transform', e.transform));
+  svg.call(zoom);
+
+  g = svg.append('g');
+
+  renderGraph();
+}
+
+function renderGraph(filter='all') {
+  g.selectAll('*').remove();
+
+  let nodes = DATA.graph_nodes.map(n=>({...n}));
+  let links = DATA.graph_links.map(l=>({...l}));
+
+  // Filter
+  if (filter !== 'all') {
+    const catNodeIds = new Set([filter]);
+    // Include relation nodes that link to this cat
+    const relIds = new Set();
+    links.forEach(l => {
+      if (l.source === filter && l.type === 'rel_to_cat') { relIds.add(l.target); catNodeIds.add(l.target); }
+      if (l.target === filter && l.type === 'rel_to_cat') { relIds.add(l.source); catNodeIds.add(l.source); }
+    });
+    // Also include root
+    catNodeIds.add('root');
+    // Include child nodes
+    links.forEach(l => {
+      if (catNodeIds.has(l.source) || catNodeIds.has(l.target)) {
+        catNodeIds.add(l.source);
+        catNodeIds.add(l.target);
+      }
+    });
+
+    nodes = nodes.filter(n => catNodeIds.has(n.id));
+    links = links.filter(l => catNodeIds.has(l.source) && catNodeIds.has(l.target));
+  }
+
+  // Build lookup
+  const nodeMap = {};
+  nodes.forEach(n => nodeMap[n.id] = n);
+
+  // Resolve link references
+  links.forEach(l => {
+    l.source = nodeMap[l.source] || l.source;
+    l.target = nodeMap[l.target] || l.target;
+  });
+
+  // Charge depends on node count
+  const chargeScale = Math.max(200, nodes.length * 30);
+
+  simulation = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links).id(d=>d.id).distance(d => {
+      if (d.type === 'cat_link' || d.type === 'rel_link') return 120;
+      if (d.type === 'rel_to_cat') return 160;
+      return 50;
+    }))
+    .force('charge', d3.forceManyBody().strength(-chargeScale))
+    .force('center', d3.forceCenter(svg.node().clientWidth/2, svg.node().clientHeight/2))
+    .force('collision', d3.forceCollide().radius(d => d.type==='root'?40:d.type==='category'?30:d.type==='relation'?25:8));
+
+  // Links
+  const link = g.append('g').selectAll('line')
+    .data(links).join('line')
+    .attr('class', d => `link ${d.type}`);
+
+  // Nodes
+  const node = g.append('g').selectAll('g')
+    .data(nodes).join('g')
+    .attr('class', d => `node ${d.type}`)
+    .call(drag());
+
+  node.append('circle')
+    .attr('r', d => {
+      if (d.type==='root') return 28;
+      if (d.type==='category') return 18;
+      if (d.type==='relation') return 16;
+      return 6;
+    });
+
+  // Labels: only for non-leaf or small graphs
+  node.append('text')
+    .text(d => {
+      if (d.type==='root') return d.name;
+      if (d.type==='category') return d.name;
+      if (d.type==='relation') return d.name;
+      if (filter !== 'all' || nodes.length < 80) return d.name.length > 12 ? d.name.substring(0,12)+'...' : d.name;
+      return '';
+    })
+    .attr('dy', d => d.type==='root' ? 5 : d.type==='category' ? -24 : d.type==='relation' ? -22 : 12)
+    .attr('text-anchor', 'middle');
+
+  simulation.on('tick', () => {
+    link
+      .attr('x1', d=>d.source.x).attr('y1', d=>d.source.y)
+      .attr('x2', d=>d.target.x).attr('y2', d=>d.target.y);
+    node.attr('transform', d => `translate(${d.x},${d.y})`);
+  });
+
+  // Click
+  node.on('click', (e, d) => {
+    e.stopPropagation();
+    showDetail(d);
+  });
+
+  // Hover highlight
+  node.on('mouseenter', (e, d) => {
+    const connected = new Set();
+    connected.add(d.id);
+    links.forEach(l => {
+      const sid = l.source.id || l.source;
+      const tid = l.target.id || l.target;
+      if (sid === d.id) connected.add(tid);
+      if (tid === d.id) connected.add(sid);
+    });
+    node.classed('dimmed', n => !connected.has(n.id));
+    node.classed('highlighted', n => n.id === d.id);
+    link.classed('dimmed', l => {
+      const sid = l.source.id || l.source;
+      const tid = l.target.id || l.target;
+      return sid !== d.id && tid !== d.id;
+    });
+  });
+  node.on('mouseleave', () => {
+    node.classed('dimmed', false);
+    node.classed('highlighted', false);
+    link.classed('dimmed', false);
+  });
+
+  // Initial transform
+  const container = document.getElementById('graphContainer');
+  svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(0.8));
+}
+
+function drag() {
+  return d3.drag()
+    .on('start', (e,d) => { if(!e.active) simulation.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
+    .on('drag', (e,d) => { d.fx=e.x; d.fy=e.y; })
+    .on('end', (e,d) => { if(!e.active) simulation.alphaTarget(0); d.fx=null; d.fy=null; });
+}
+
+function showDetail(d) {
+  const panel = document.getElementById('detailPanel');
+  const content = document.getElementById('detailContent');
+
+  if (d.type === 'root') {
+    content.innerHTML = `
+      <button class="detail-close" onclick="closeDetail()">&times;</button>
+      <div class="detail-tag category">核心</div>
+      <div class="detail-name">树立和践行正确政绩观</div>
+      <div class="detail-fullname">正确的政绩观是为政之德、从政之道、施政之要。新时代树立和践行正确政绩观，事关党和国家事业发展大局、事关人民群众切身利益、事关中国式现代化建设进程。</div>
+      <div class="items-section">
+        <h3><div class="dot" style="background:#D4A843"></div> 七大类别</h3>
+        <ul>${DATA.categories.map(c=>`<li style="background:rgba(212,168,67,0.1);border-left:3px solid #D4A843;cursor:pointer" onclick="showGraph('${c.id}')">${c.short} (${c.positive.length}正/${c.negative.length}负)</li>`).join('')}</ul>
+      </div>
+      <div class="items-section" style="margin-top:12px">
+        <h3><div class="dot" style="background:#1565C0"></div> 五对关系</h3>
+        <ul>${DATA.relations.map(r=>`<li style="background:rgba(21,101,192,0.1);border-left:3px solid #1565C0;cursor:pointer" onclick="showRelDetail('${r.id}')">${r.name}</li>`).join('')}</ul>
+      </div>
+    `;
+  } else if (d.type === 'category') {
+    const cat = DATA.categories.find(c=>c.id===d.id);
+    content.innerHTML = `
+      <button class="detail-close" onclick="closeDetail()">&times;</button>
+      <div class="detail-tag category">第${DATA.categories.indexOf(cat)+1}类</div>
+      <div class="detail-name">${cat.name}</div>
+      <div class="toggle-group">
+        <div class="toggle-btn pos active" onclick="toggleItems('pos',this)">正面清单 (${cat.positive.length})</div>
+        <div class="toggle-btn neg" onclick="toggleItems('neg',this)">负面清单 (${cat.negative.length})</div>
+      </div>
+      <div id="itemsPos" class="items-section">
+        <h3><div class="dot" style="background:#2E7D32"></div> 正面清单</h3>
+        <ul>${cat.positive.map((p,i)=>`<li class="pos-item">${i+1}. ${p}</li>`).join('')}</ul>
+      </div>
+      <div id="itemsNeg" class="items-section" style="display:none">
+        <h3><div class="dot" style="background:#C62828"></div> 负面清单</h3>
+        <ul>${cat.negative.map((n,i)=>`<li class="neg-item">${i+1}. ${n}</li>`).join('')}</ul>
+      </div>
+    `;
+  } else if (d.type === 'positive') {
+    const cat = DATA.categories.find(c=>c.id===d.catId);
+    content.innerHTML = `
+      <button class="detail-close" onclick="closeDetail()">&times;</button>
+      <div class="detail-tag positive">正面清单</div>
+      <div class="detail-name">${d.name}</div>
+      <div class="detail-fullname">所属类别：${cat.short}</div>
+    `;
+  } else if (d.type === 'negative') {
+    const cat = DATA.categories.find(c=>c.id===d.catId);
+    content.innerHTML = `
+      <button class="detail-close" onclick="closeDetail()">&times;</button>
+      <div class="detail-tag negative">负面清单</div>
+      <div class="detail-name">${d.name}</div>
+      <div class="detail-fullname">所属类别：${cat.short}</div>
+    `;
+  } else if (d.type === 'relation') {
+    showRelDetail(d.id);
+    return;
+  }
+
+  panel.classList.add('open');
+}
+
+function showRelDetail(relId) {
+  const rel = DATA.relations.find(r=>r.id===relId);
+  const panel = document.getElementById('detailPanel');
+  const content = document.getElementById('detailContent');
+  const catNames = rel.related_cats.map(cid => DATA.categories.find(c=>c.id===cid)?.short || cid);
+
+  content.innerHTML = `
+    <button class="detail-close" onclick="closeDetail()">&times;</button>
+    <div class="detail-tag relation">五对关系</div>
+    <div class="detail-name">${rel.name}</div>
+    <div class="detail-fullname">${rel.intro}</div>
+    <div class="items-section">
+      <div class="rel-aspect a1" style="margin-bottom:10px">
+        <h4>${rel.aspect1.label}</h4>
+        <p>${rel.aspect1.text}</p>
+      </div>
+      <div class="rel-aspect a2" style="margin-bottom:10px">
+        <h4>${rel.aspect2.label}</h4>
+        <p>${rel.aspect2.text}</p>
+      </div>
+    </div>
+    <div class="rel-tags" style="margin-top:12px">
+      关联类别：${catNames.map(n=>`<span>${n}</span>`).join('')}
+    </div>
+  `;
+
+  panel.classList.add('open');
+}
+
+function toggleItems(type, btn) {
+  document.getElementById('itemsPos').style.display = type==='pos'?'block':'none';
+  document.getElementById('itemsNeg').style.display = type==='neg'?'block':'none';
+  btn.parentElement.querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function closeDetail() {
+  document.getElementById('detailPanel').classList.remove('open');
+}
+
+function showGraph(filter) {
+  currentFilter = filter;
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('graphContainer').style.display = 'block';
+  document.getElementById('relationsPage').classList.remove('active');
+  closeDetail();
+  renderGraph(filter);
+}
+
+function showRelations() {
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('graphContainer').style.display = 'none';
+  document.getElementById('relationsPage').classList.add('active');
+  closeDetail();
+}
+
+function buildRelationsPage() {
+  const page = document.getElementById('relationsPage');
+  page.innerHTML = DATA.relations.map(rel => {
+    const catNames = rel.related_cats.map(cid => DATA.categories.find(c=>c.id===cid)?.short || cid);
+    return `
+      <div class="rel-card fade-enter">
+        <h3>${rel.name}</h3>
+        <div class="rel-intro">${rel.intro}</div>
+        <div class="rel-aspects">
+          <div class="rel-aspect a1">
+            <h4>${rel.aspect1.label}</h4>
+            <p>${rel.aspect1.text}</p>
+          </div>
+          <div class="rel-aspect a2">
+            <h4>${rel.aspect2.label}</h4>
+            <p>${rel.aspect2.text}</p>
+          </div>
+        </div>
+        <div class="rel-tags">
+          关联类别：${catNames.map(n=>`<span>${n}</span>`).join('')}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// Theme
+function toggleTheme() {
+  const body = document.body;
+  const btn = document.querySelector('.theme-toggle');
+  if (body.classList.contains('dark')) {
+    body.classList.replace('dark','light');
+    btn.textContent = '🌙 深色';
+  } else {
+    body.classList.replace('light','dark');
+    btn.textContent = '☀ 浅色';
+  }
+}
+
+// Zoom controls
+function zoomIn() { svg.transition().duration(300).call(zoom.scaleBy, 1.3); }
+function zoomOut() { svg.transition().duration(300).call(zoom.scaleBy, 0.7); }
+function resetZoom() {
+  const container = document.getElementById('graphContainer');
+  svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity.translate(0,0).scale(0.8));
+}
+
+// Search
+function handleSearch(query) {
+  const results = document.getElementById('searchResults');
+  if (!query.trim()) { results.classList.remove('show'); return; }
+  query = query.toLowerCase();
+
+  const matches = [];
+  DATA.categories.forEach(cat => {
+    cat.positive.forEach(p => {
+      if (p.toLowerCase().includes(query)) {
+        matches.push({ type: '正面清单', cat: cat.short, text: p, action: `showGraph('${cat.id}')` });
+      }
+    });
+    cat.negative.forEach(n => {
+      if (n.toLowerCase().includes(query)) {
+        matches.push({ type: '负面清单', cat: cat.short, text: n, action: `showGraph('${cat.id}')` });
+      }
+    });
+  });
+  DATA.relations.forEach(rel => {
+    if (rel.name.toLowerCase().includes(query) || rel.intro.toLowerCase().includes(query) ||
+        rel.aspect1.text.toLowerCase().includes(query) || rel.aspect2.text.toLowerCase().includes(query)) {
+      matches.push({ type: '五对关系', cat: '', text: rel.name, action: `showRelDetail('${rel.id}')` });
+    }
+  });
+
+  if (matches.length === 0) {
+    results.innerHTML = '<div style="padding:14px;opacity:0.5;text-align:center">未找到相关结果</div>';
+  } else {
+    results.innerHTML = matches.slice(0, 20).map((m,i) => `
+      <div class="search-result-item" onclick="${m.action};document.getElementById('searchResults').classList.remove('show')">
+        <div class="sr-type">${m.type} ${m.cat?'· '+m.cat:''}</div>
+        <div class="sr-name">${highlightText(m.text, query)}</div>
+      </div>
+    `).join('');
+  }
+  results.classList.add('show');
+}
+
+function highlightText(text, query) {
+  const idx = text.toLowerCase().indexOf(query);
+  if (idx === -1) return text;
+  return text.substring(0,idx) + '<mark style="background:#D4A843;color:#000;border-radius:2px;padding:0 2px">' + text.substring(idx,idx+query.length) + '</mark>' + text.substring(idx+query.length);
+}
+
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchResults').classList.remove('show');
+}
+
+// Close search results on outside click
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-bar') && !e.target.closest('.search-results')) {
+    document.getElementById('searchResults').classList.remove('show');
+  }
+});
+
+// Resize handler
+window.addEventListener('resize', () => {
+  if (currentFilter !== undefined) renderGraph(currentFilter);
+});
+</script>
+</body>
+</html>

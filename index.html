@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>牢记"三严三实" 践行和树立正确政绩观 学习知识库</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
+  :root {
+    --red: #C41E3A;
+    --red-light: #e8354f;
+    --gold: #D4A853;
+    --gold-light: #f0d48a;
+    --dark: #1a1a2e;
+    --bg: #faf8f5;
+    --card-bg: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666;
+    --border: #e8e4de;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  .red-gradient {
+    background: linear-gradient(135deg, var(--red) 0%, #8b1528 100%);
+  }
+  .gold-line {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(196, 30, 58, 0.12);
+  }
+  .tag-btn {
+    transition: all 0.2s;
+  }
+  .tag-btn.active {
+    background: var(--red);
+    color: white;
+  }
+  .tag-btn:not(.active):hover {
+    background: #fde8ec;
+  }
+  .search-highlight {
+    background: rgba(212, 168, 83, 0.35);
+    padding: 1px 2px;
+    border-radius: 2px;
+  }
+  .category-card {
+    border-left: 4px solid var(--red);
+  }
+  .positive-tag { background: #e8f5e9; color: #2e7d32; }
+  .negative-tag { background: #ffebee; color: #c62828; }
+  .relation-card {
+    border: 2px solid var(--border);
+    transition: all 0.3s;
+  }
+  .relation-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 8px 30px rgba(212, 168, 83, 0.15);
+  }
+  .fade-in {
+    animation: fadeIn 0.3s ease-in;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .content-body p {
+    text-indent: 2em;
+    margin-bottom: 0.8em;
+    line-height: 1.9;
+    font-size: 1rem;
+  }
+  .content-body h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 1.5em 0 0.8em;
+    color: var(--red);
+  }
+  .content-body h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 1.2em 0 0.6em;
+    color: var(--dark);
+  }
+  .scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--red);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 50;
+    border: none;
+    font-size: 1.2rem;
+  }
+  .scroll-top.visible { opacity: 0.8; }
+  .scroll-top:hover { opacity: 1; }
+  .nav-link {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .nav-link:hover { background: rgba(255,255,255,0.15); }
+  .nav-link.active { background: rgba(255,255,255,0.25); font-weight: 600; }
+  .aspect-block {
+    padding: 1.2rem;
+    border-radius: 0.75rem;
+    line-height: 1.8;
+  }
+  .item-chip {
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    display: inline-block;
+    margin: 0.2rem;
+  }
+  .item-chip:hover { opacity: 0.8; transform: scale(1.03); }
+  @media (max-width: 768px) {
+    .content-body p { font-size: 0.95rem; line-height: 1.8; }
+    .content-body h2 { font-size: 1.15rem; }
+  }
+
+  /* ===== 新增样式：模态框 ===== */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn 0.2s;
+  }
+  .modal-box {
+    background: white;
+    border-radius: 1rem;
+    max-width: 640px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .modal-body { padding: 1.5rem; }
+  .modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
+  .form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.4rem;
+  }
+  .form-input {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1.5px solid var(--border);
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    background: #fafafa;
+  }
+  .form-input:focus {
+    outline: none;
+    border-color: var(--red);
+    background: white;
+  }
+  .form-textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  .form-select {
+    appearance: auto;
+  }
+  .btn-primary {
+    background: var(--red);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .btn-primary:hover { background: var(--red-light); }
+  .btn-secondary {
+    background: white;
+    color: var(--text);
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.5rem;
+    border: 1.5px solid var(--border);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .btn-secondary:hover { background: #f5f5f5; }
+  .btn-danger {
+    background: transparent;
+    color: #999;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s;
+    font-size: 0.8rem;
+  }
+  .btn-danger:hover { color: #c62828; background: #ffebee; }
+
+  /* ===== 新增样式：Toast ===== */
+  .toast {
+    position: fixed;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2e7d32;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 0.9rem;
+    z-index: 200;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    animation: toastIn 0.3s, toastOut 0.3s 2.2s forwards;
+    pointer-events: none;
+  }
+  .toast.error { background: #c62828; }
+  @keyframes toastIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+  @keyframes toastOut {
+    from { opacity: 1; }
+    to { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  }
+  .ext-link-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .ext-link-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 8px 30px rgba(212, 168, 83, 0.15);
+    transform: translateY(-2px);
+  }
+
+  /* ===== 新增标签 ===== */
+  .user-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: linear-gradient(135deg, var(--gold), #e8b84f);
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 1rem;
+    font-weight: 600;
+  }
+  .ext-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    background: #e3f2fd;
+    color: #1565c0;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 1rem;
+    font-weight: 600;
+  }
+
+  /* ===== 添加按钮样式 ===== */
+  .btn-add-gold {
+    background: linear-gradient(135deg, var(--gold), #e8b84f);
+    color: white;
+    padding: 0.45rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .btn-add-gold:hover {
+    background: linear-gradient(135deg, #e8b84f, var(--gold-light));
+    box-shadow: 0 4px 12px rgba(212, 168, 83, 0.4);
+  }
+
+  /* 子表单动态显示 */
+  .sub-form { display: none; }
+  .sub-form.visible { display: block; }
+</style>
+</head>
+<body>
+
+<!-- Top Nav -->
+<header class="red-gradient text-white sticky top-0 z-40 shadow-lg">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3 cursor-pointer" onclick="showHome()">
+      <span class="text-2xl">📚</span>
+      <span class="font-bold text-lg tracking-wide hidden sm:inline">牢记"三严三实"<br>践行和树立正确政绩观<br>学习知识库</span>
+      <span class="font-bold text-base sm:hidden">牢记"三严三实"<br>践行和树立正确政绩观<br>学习知识库</span>
+    </div>
+    <nav class="flex items-center gap-1 text-sm overflow-x-auto">
+      <span class="nav-link active" data-page="home" onclick="showHome()">📚 知识库</span>
+      <span class="nav-link" data-page="atlas" onclick="showAtlas()">🕸️ 知识图谱</span>
+    </nav>
+  </div>
+  <div class="gold-line"></div>
+</header>
+
+<!-- Main Content -->
+<main id="app" class="max-w-6xl mx-auto px-4 py-6"></main>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="data.js"></script>
+<script>
+// ========== State ==========
+let currentPage = 'home';
+let currentCategory = '全部';
+let currentCatTab = 0;
+let checklistSide = 'positive';
+let expandedRel = -1;
+
+// ========== localStorage 用户数据管理 ==========
+const LS_KEY = 'zhengjiguan_user_added';
+const LS_EXT_KEY = 'zhengjiguan_user_extlinks';
+
+function getUserAdded() {
+  try {
+    return JSON.parse(localStorage.getItem(LS_KEY)) || [];
+  } catch(e) { return []; }
+}
+
+function saveUserAdded(items) {
+  localStorage.setItem(LS_KEY, JSON.stringify(items));
+}
+
+function getUserExtLinks() {
+  try {
+    return JSON.parse(localStorage.getItem(LS_EXT_KEY)) || [];
+  } catch(e) { return []; }
+}
+
+function saveUserExtLinks(items) {
+  localStorage.setItem(LS_EXT_KEY, JSON.stringify(items));
+}
+
+function addUserItem(item) {
+  const items = getUserAdded();
+  item.id = 'user_' + Date.now();
+  item.addedAt = new Date().toISOString();
+  items.unshift(item);
+  saveUserAdded(items);
+  return item;
+}
+
+function removeUserItem(id) {
+  const items = getUserAdded().filter(i => i.id !== id);
+  saveUserAdded(items);
+}
+
+function addUserExtLink(link) {
+  const links = getUserExtLinks();
+  link.id = 'uext_' + Date.now();
+  link.addedAt = new Date().toISOString();
+  link.is_default = false;
+  links.unshift(link);
+  saveUserExtLinks(links);
+  return link;
+}
+
+function removeUserExtLink(id) {
+  const links = getUserExtLinks().filter(i => i.id !== id);
+  saveUserExtLinks(links);
+}
+
+function getAllExtLinks() {
+  const defaults = (KB_DATA.external_links || []).filter(l => l.is_default !== false);
+  const userLinks = getUserExtLinks();
+  return [...defaults, ...userLinks];
+}
+
+function getAllArticles() {
+  return [...KB_DATA.articles, ...getUserAdded()];
+}
+
+function getArticlesByCategory(cat) {
+  if (cat === '全部') return getAllArticles();
+  return getAllArticles().filter(a => a.category === cat);
+}
+
+function getUserAddedCount() {
+  return getUserAdded().length;
+}
+
+function getUserExtLinksCount() {
+  return getUserExtLinks().length;
+}
+
+// ========== Helpers ==========
+function $(sel) { return document.querySelector(sel); }
+function $$(sel) { return document.querySelectorAll(sel); }
+
+function setActiveNav(page) {
+  $$('.nav-link').forEach(n => n.classList.toggle('active', n.dataset.page === page));
+}
+
+function highlightText(text, keyword) {
+  if (!keyword) return text;
+  const esc = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return text.replace(new RegExp(`(${esc})`, 'gi'), '<span class="search-highlight">$1</span>');
+}
+
+function searchArticles(keyword) {
+  if (!keyword.trim()) return [];
+  const kw = keyword.trim().toLowerCase();
+  return getAllArticles().filter(a =>
+    a.title.toLowerCase().includes(kw) ||
+    (a.content && a.content.toLowerCase().includes(kw)) ||
+    a.summary.toLowerCase().includes(kw)
+  );
+}
+
+function getCatById(id) {
+  return KB_DATA.categories.find(c => c.id === id);
+}
+
+function showToast(msg, isError) {
+  const old = document.querySelector('.toast');
+  if (old) old.remove();
+  const t = document.createElement('div');
+  t.className = 'toast' + (isError ? ' error' : '');
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2600);
+}
+
+function isUserItem(id) { return id && id.startsWith('user_'); }
+function isUserExt(id) { return id && id.startsWith('uext_'); }
+
+// ========== Category counts with user data ==========
+function getCatCounts() {
+  const counts = {};
+  getAllArticles().forEach(a => { counts[a.category] = (counts[a.category]||0) + 1; });
+  return counts;
+}
+
+// ========== Page Renderers ==========
+
+function showHome() {
+  currentPage = 'home';
+  setActiveNav('home');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  
+  const cats = [
+    { name: '理论文章', icon: '📰', color: 'from-red-500 to-red-700', desc: '人民日报评论、新华社长文等权威解读' },
+    { name: '学习材料', icon: '📋', color: 'from-amber-500 to-amber-700', desc: '正负面清单、五对关系等结构化材料' },
+    { name: '交流发言', icon: '🎤', color: 'from-blue-500 to-blue-700', desc: '发言提纲、学习体会、交流材料' },
+    { name: '政策部署', icon: '🏛️', color: 'from-purple-500 to-purple-700', desc: '党中央部署通知、学习教育方案' },
+      ];
+  
+  const catCount = getCatCounts();
+  const userCount = getUserAddedCount();
+  const totalArticles = getAllArticles().length;
+  const totalExtLinks = getAllExtLinks().length;
+  
+  const app = $('#app');
+  app.innerHTML = `
+    <div class="fade-in">
+      <!-- Stats Banner -->
+      <div class="bg-white rounded-xl p-4 mb-6 shadow-sm border border-gray-100 flex flex-wrap items-center justify-center gap-4 text-sm">
+        <span style="color:var(--dark)" class="font-semibold">📊 知识库统计</span>
+        <span class="text-gray-600">共 <b style="color:var(--red)">${totalArticles}</b> 篇材料</span>
+        <span class="text-gray-300">|</span>
+        <span class="text-gray-600">其中内置 <b>${KB_DATA.articles.length}</b> 篇</span>
+        <span class="text-gray-300">|</span>
+        <span class="text-gray-600">用户添加 <b style="color:var(--gold)">${userCount}</b> 条</span>
+        <span class="text-gray-300">|</span>
+      </div>
+
+      <!-- Search -->
+      <div class="mb-8">
+        <div class="relative max-w-2xl mx-auto">
+          <input type="text" id="homeSearch" placeholder="🔍 搜索文章内容、关键词..."
+            class="w-full px-5 py-3.5 pl-12 rounded-xl border-2 border-transparent bg-white shadow-md text-base
+            focus:outline-none focus:border-[var(--red)] focus:shadow-lg transition-all"
+            oninput="handleHomeSearch(this.value)">
+          <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+        <div id="searchResults" class="mt-4 hidden"></div>
+      </div>
+      
+      <!-- Category Cards -->
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+        ${cats.map(c => {
+          </div>
+              <div class="font-semibold text-base mb-1" style="color:var(--dark)">${c.name}</div>
+              <div class="text-xs text-gray-500 mb-2">${c.desc}</div>
+              <div class="text-xs font-bold" style="color:var(--red)">${totalExtLinks} 个</div>
+            </div>`;
+          }
+          return `
+          <div class="card-hover bg-white rounded-xl p-5 cursor-pointer shadow-sm border border-gray-100"
+               onclick="showArticles('${c.name}')">
+            <div class="text-3xl mb-3">${c.icon}</div>
+            <div class="font-semibold text-base mb-1" style="color:var(--dark)">${c.name}</div>
+            <div class="text-xs text-gray-500 mb-2">${c.desc}</div>
+            <div class="text-xs font-bold" style="color:var(--red)">${catCount[c.name]||0} 篇</div>
+          </div>`;
+        }).join('')}
+      </div>
+      
+      <!-- Quick Access -->
+      <div class="grid md:grid-cols-2 gap-4 mb-8">
+        <div class="card-hover bg-white rounded-xl p-6 cursor-pointer shadow-sm border border-gray-100"
+             onclick="showChecklist()">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-2xl">✅</span>
+            <div>
+              <div class="font-semibold" style="color:var(--dark)">正负面清单</div>
+              <div class="text-xs text-gray-500">7大类 · ${KB_DATA.categories.reduce((s,c)=>s+c.positive.length+c.negative.length,0)} 条</div>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-1">
+            ${KB_DATA.categories.map(c => `<span class="text-xs px-2 py-0.5 rounded-full bg-red-50 text-red-700">${c.short}</span>`).join('')}
+          </div>
+        </div>
+        <div class="card-hover bg-white rounded-xl p-6 cursor-pointer shadow-sm border border-gray-100"
+             onclick="showAtlas()">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-2xl">⚖️</span>
+            <div>
+              <div class="font-semibold" style="color:var(--dark)">五对关系</div>
+              <div class="text-xs text-gray-500">辩证统一的5对重大关系</div>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-1">
+            ${KB_DATA.relations.map(r => `<span class="text-xs px-2 py-0.5 rounded-full bg-amber-50 text-amber-700">${r.short}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+      
+      <!-- All Articles -->
+      <div class="mb-6 flex items-center justify-between">
+        <h2 class="text-xl font-bold" style="color:var(--dark)">全部文章</h2>
+        <div class="flex items-center gap-3">
+          <span class="text-sm text-gray-500">共 ${totalArticles} 篇</span>
+          ${userCount > 0 ? `<span class="text-xs px-2 py-0.5 rounded-full" style="background:linear-gradient(135deg,var(--gold),#e8b84f);color:white">+${userCount} 条用户添加</span>` : ''}
+        </div>
+      </div>
+      <div class="grid gap-3" id="homeArticleList">
+        ${getAllArticles().map(a => renderArticleCard(a)).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function renderArticleCard(a, keyword='') {
+  const catColors = {
+    '理论文章': 'bg-red-50 text-red-700',
+    '学习材料': 'bg-amber-50 text-amber-700',
+    '交流发言': 'bg-blue-50 text-blue-700',
+    '政策部署': 'bg-purple-50 text-purple-700',
+    
+  };
+  const title = keyword ? highlightText(a.title, keyword) : a.title;
+  const summary = keyword ? highlightText(a.summary, keyword) : a.summary;
+  const isUser = isUserItem(a.id);
+  const isExt = a.isExternal;
+  const wordCount = a.wordCount || (a.content ? a.content.length : 0);
+  const source = a.source || '用户添加';
+  if (isExt || a.url) {
+    return `
+    <div class="card-hover bg-white rounded-xl p-5 shadow-sm border border-gray-100"
+         onclick="window.open('${a.url}', '_blank')">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            
+            ${isUser ? '<span class="user-badge">✨ 新增</span>' : ''}
+            <span class="text-xs text-gray-400">${source}</span>
+          </div>
+          <h3 class="font-semibold text-base mb-1 truncate" style="color:var(--dark)">🔗 ${title}</h3>
+          <p class="text-sm text-gray-500 line-clamp-2">${a.description || summary || a.url}</p>
+        </div>
+        <svg class="w-5 h-5 text-gray-300 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+        </svg>
+      </div>
+    </div>`;
+  }
+
+  return `
+    <div class="card-hover bg-white rounded-xl p-5 shadow-sm border border-gray-100"
+         onclick="${isUser ? "showArticle('" + a.id + "')" : "showArticle('" + a.id + "', '')"}">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs px-2 py-0.5 rounded-full ${catColors[a.category]||'bg-gray-100 text-gray-600'}">${a.category}</span>
+            ${isUser ? '<span class="user-badge">✨ 新增</span>' : ''}
+            <span class="text-xs text-gray-400">${source}</span>
+            <span class="text-xs text-gray-400">${wordCount}字</span>
+          </div>
+          <h3 class="font-semibold text-base mb-1 truncate" style="color:var(--dark)">${title}</h3>
+          <p class="text-sm text-gray-500 line-clamp-2">${summary}</p>
+        </div>
+        <div class="flex items-center gap-1 flex-shrink-0 mt-1">
+          ${isUser ? `<button class="btn-danger" onclick="event.stopPropagation();confirmDeleteUserItem('${a.id}')" title="删除">🗑</button>` : ''}
+          <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function confirmDeleteUserItem(id) {
+  if (confirm('确定删除这条用户添加的材料吗？')) {
+    removeUserItem(id);
+    showToast('已删除');
+    showHome();
+  }
+}
+
+function handleHomeSearch(val) {
+  const results = $('#searchResults');
+  if (!val.trim()) {
+    results.classList.add('hidden');
+    $('#homeArticleList').classList.remove('hidden');
+    return;
+  }
+  $('#homeArticleList').classList.add('hidden');
+  results.classList.remove('hidden');
+  const found = searchArticles(val);
+  if (found.length === 0) {
+    results.innerHTML = '<div class="text-center text-gray-400 py-8">未找到相关内容</div>';
+    return;
+  }
+  results.innerHTML = `
+    <div class="mb-2 text-sm text-gray-500">找到 ${found.length} 篇相关文章</div>
+    <div class="grid gap-3">${found.map(a => renderArticleCard(a, val)).join('')}</div>
+  `;
+}
+
+function showArticles(cat) {
+  currentPage = 'articles';
+  currentCategory = cat || '全部';
+  setActiveNav('home');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  renderArticlesPage();
+}
+
+function renderArticlesPage() {
+  const categories = ['全部', '理论文章', '学习材料', '交流发言', '政策部署'];
+  const articles = getArticlesByCategory(currentCategory);
+  
+  const app = $('#app');
+  app.innerHTML = `
+    <div class="fade-in">
+      <h1 class="text-2xl font-bold mb-6" style="color:var(--dark)">文章浏览</h1>
+      
+      <!-- Category Tabs -->
+      <div class="flex flex-wrap gap-2 mb-6">
+        ${categories.map(c => `
+          <button class="tag-btn px-4 py-2 rounded-lg text-sm border border-gray-200 bg-white font-medium
+            ${c === currentCategory ? 'active' : 'text-gray-600'}"
+            onclick="currentCategory='${c}';renderArticlesPage()">
+            ${c}
+            <span class="ml-1 text-xs opacity-60">${c==='全部' ? getAllArticles().length : getAllArticles().filter(a=>a.category===c).length}</span>
+          </button>
+        `).join('')}
+      </div>
+      
+      <!-- Search -->
+      <div class="mb-6">
+        <input type="text" placeholder="🔍 在${currentCategory}中搜索..."
+          class="w-full px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-sm
+          focus:outline-none focus:border-[var(--red)] transition-colors"
+          oninput="handleArticleSearch(this.value)">
+      </div>
+      
+      <div class="grid gap-3" id="articleList">
+        ${articles.length ? articles.map(a => renderArticleCard(a)).join('') :
+          '<div class="text-center text-gray-400 py-12">该分类暂无文章</div>'}
+      </div>
+    </div>
+  `;
+}
+
+function handleArticleSearch(val) {
+  const list = $('#articleList');
+  if (!val.trim()) {
+    const articles = getArticlesByCategory(currentCategory);
+    list.innerHTML = articles.length ? articles.map(a => renderArticleCard(a)).join('') :
+      '<div class="text-center text-gray-400 py-12">该分类暂无文章</div>';
+    return;
+  }
+  const kw = val.trim().toLowerCase();
+  const base = getArticlesByCategory(currentCategory);
+  const found = base.filter(a =>
+    a.title.toLowerCase().includes(kw) || (a.content && a.content.toLowerCase().includes(kw)) || a.summary.toLowerCase().includes(kw)
+  );
+  list.innerHTML = found.length ? found.map(a => renderArticleCard(a, val)).join('') :
+    '<div class="text-center text-gray-400 py-8">未找到匹配内容</div>';
+}
+
+function showArticle(id, keyword) {
+  // 先从内置数据查找，再从用户数据查找
+  let article = KB_DATA.articles.find(a => a.id === id);
+  if (!article) {
+    article = getUserAdded().find(a => a.id === id);
+  }
+  if (!article) return;
+  currentPage = 'article';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  
+  const content = article.content || article.summary || '';
+  let html = keyword ? highlightText(content, keyword) : content;
+  html = html.replace(/\n\n/g, '</p><p>');
+  html = html.replace(/\n/g, '<br>');
+  html = '<p>' + html + '</p>';
+  
+  const catColors = {
+    '理论文章': 'bg-red-50 text-red-700',
+    '学习材料': 'bg-amber-50 text-amber-700',
+    '交流发言': 'bg-blue-50 text-blue-700',
+    '政策部署': 'bg-purple-50 text-purple-700',
+  };
+  
+  const isUser = isUserItem(id);
+  const wordCount = article.wordCount || (article.content ? article.content.length : 0);
+  const source = article.source || '用户添加';
+
+  // 相关文章
+  const relatedArticles = getAllArticles().filter(a => a.id !== id && a.category === article.category && !isUserItem(a.id) && !a.isExternal).slice(0, 4);
+  
+  $('#app').innerHTML = `
+    <div class="fade-in">
+      <button onclick="showArticles('${article.category}')" 
+        class="flex items-center gap-2 text-sm text-gray-500 hover:text-[var(--red)] mb-6 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        返回文章列表
+      </button>
+      
+      <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
+        <div class="flex items-center gap-2 mb-4 flex-wrap">
+          <span class="text-xs px-2 py-0.5 rounded-full ${catColors[article.category]||'bg-gray-100 text-gray-600'}">${article.category}</span>
+          ${isUser ? '<span class="user-badge">✨ 新增</span>' : ''}
+          <span class="text-xs text-gray-400">${source}</span>
+          <span class="text-xs text-gray-400">${wordCount} 字</span>
+        </div>
+        <h1 class="text-xl md:text-2xl font-bold mb-6 leading-relaxed" style="color:var(--dark)">${article.title}</h1>
+        <div class="gold-line mb-6"></div>
+        <div class="content-body">${html}</div>
+      </article>
+      
+      <!-- Related Articles -->
+      ${relatedArticles.length > 0 ? `
+      <div class="mt-8">
+        <h2 class="text-lg font-bold mb-4" style="color:var(--dark)">相关文章</h2>
+        <div class="grid md:grid-cols-2 gap-3">
+          ${relatedArticles.map(a => renderArticleCard(a)).join('')}
+        </div>
+      </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function showChecklist() {
+  currentPage = 'checklist';
+  setActiveNav('home');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  currentCatTab = 0;
+  checklistSide = 'positive';
+  renderChecklistPage();
+}
+
+function renderChecklistPage() {
+  const app = $('#app');
+  app.innerHTML = `
+    <div class="fade-in">
+      <h1 class="text-2xl font-bold mb-2" style="color:var(--dark)">正负面清单</h1>
+      <p class="text-sm text-gray-500 mb-6">7大类 · ${KB_DATA.categories.reduce((s,c)=>s+c.positive.length+c.negative.length,0)} 条正面与负面行为对照</p>
+      
+      <!-- Side Toggle -->
+      <div class="flex gap-2 mb-6">
+        <button onclick="checklistSide='positive';renderChecklistPage()"
+          class="tag-btn px-5 py-2 rounded-lg text-sm font-medium border border-gray-200 bg-white
+          ${checklistSide==='positive' ? 'active' : 'text-green-700'}">
+          ✅ 正面清单 (${KB_DATA.categories.reduce((s,c)=>s+c.positive.length,0)})
+        </button>
+        <button onclick="checklistSide='negative';renderChecklistPage()"
+          class="tag-btn px-5 py-2 rounded-lg text-sm font-medium border border-gray-200 bg-white
+          ${checklistSide==='negative' ? 'active' : 'text-red-700'}">
+          ❌ 负面清单 (${KB_DATA.categories.reduce((s,c)=>s+c.negative.length,0)})
+        </button>
+      </div>
+      
+      <!-- Categories -->
+      <div class="flex flex-wrap gap-2 mb-6">
+        ${KB_DATA.categories.map((c, i) => `
+          <button onclick="currentCatTab=${i};renderChecklistPage()"
+            class="tag-btn px-3 py-1.5 rounded-lg text-xs border border-gray-200 bg-white
+            ${i===currentCatTab ? 'active' : 'text-gray-600'}">
+            ${c.short} (${(checklistSide==='positive'?c.positive:c.negative).length})
+          </button>
+        `).join('')}
+      </div>
+      
+      <!-- Current Category Detail -->
+      ${renderChecklistDetail()}
+    </div>
+  `;
+}
+
+function renderChecklistDetail() {
+  const cat = KB_DATA.categories[currentCatTab];
+  if (!cat) return '';
+  const items = checklistSide === 'positive' ? cat.positive : cat.negative;
+  const otherItems = checklistSide === 'positive' ? cat.negative : cat.positive;
+  const isPos = checklistSide === 'positive';
+  
+  // Find related articles
+  const catKeywords = cat.short;
+  const relatedArticles = getAllArticles().filter(a => !a.isExternal && (a.content && a.content.includes(catKeywords))).slice(0, 3);
+  
+  return `
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <div class="p-6 border-b border-gray-100">
+        <h2 class="text-lg font-bold mb-1" style="color:var(--dark)">${cat.name}</h2>
+        <div class="flex items-center gap-3 text-sm">
+          <span class="text-green-600">正面 ${cat.positive.length} 条</span>
+          <span class="text-gray-300">|</span>
+          <span class="text-red-600">负面 ${cat.negative.length} 条</span>
+        </div>
+      </div>
+      
+      <div class="grid md:grid-cols-3">
+        <!-- Main List -->
+        <div class="md:col-span-2 p-6">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-lg">${isPos ? '✅' : '❌'}</span>
+            <span class="font-semibold ${isPos ? 'text-green-700' : 'text-red-700'}">${isPos ? '正面清单' : '负面清单'}</span>
+          </div>
+          <div class="space-y-2">
+            ${items.map((item, i) => `
+              <div class="flex items-start gap-3 p-3 rounded-lg ${isPos ? 'bg-green-50/50 hover:bg-green-50' : 'bg-red-50/50 hover:bg-red-50'} transition-colors">
+                <span class="text-xs font-mono text-gray-400 mt-0.5 w-5 flex-shrink-0">${String(i+1).padStart(2,'0')}</span>
+                <span class="text-sm leading-relaxed">${item}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="border-t md:border-t-0 md:border-l border-gray-100 p-6 bg-gray-50/50">
+          <div class="mb-6">
+            <div class="font-semibold text-sm mb-3 ${isPos ? 'text-red-600' : 'text-green-600'}">
+              ${isPos ? '❌ 对应负面' : '✅ 对应正面'} (${otherItems.length})
+            </div>
+            <div class="space-y-1.5">
+              ${otherItems.slice(0, 8).map(item => `
+                <div class="text-xs text-gray-500 leading-relaxed flex items-start gap-2">
+                  <span class="mt-0.5">${isPos ? '❌' : '✅'}</span>
+                  <span>${item}</span>
+                </div>
+              `).join('')}
+              ${otherItems.length > 8 ? `<div class="text-xs text-gray-400">...等共 ${otherItems.length} 条</div>` : ''}
+            </div>
+          </div>
+          
+          ${relatedArticles.length ? `
+          <div>
+            <div class="font-semibold text-sm mb-3" style="color:var(--dark)">📎 相关文章</div>
+            <div class="space-y-2">
+              ${relatedArticles.map(a => `
+                <div class="text-sm cursor-pointer hover:text-[var(--red)] transition-colors leading-relaxed"
+                     onclick="showArticle('${a.id}')">
+                  <span class="text-gray-400">·</span> ${a.title.length > 20 ? a.title.substring(0,20)+'...' : a.title}
+                </div>
+              `).join('')}
+            </div>
+          </div>
+          ` : ''}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function showAtlas() {
+  // 知识图谱页面 - 链接到独立图谱页面
+  window.open('/atlas.html', '_blank');
+}
+
+function renderRelationsPage() {
+  const app = $('#app');
+  app.innerHTML = `
+    <div class="fade-in">
+      <h1 class="text-2xl font-bold mb-2" style="color:var(--dark)">五对关系</h1>
+      <p class="text-sm text-gray-500 mb-8">树立和践行正确政绩观要处理好的五对重大关系</p>
+      
+      <div class="space-y-6">
+        ${KB_DATA.relations.map((rel, i) => `
+          <div class="relation-card bg-white rounded-xl overflow-hidden" id="rel_${i}">
+            <div class="p-6 cursor-pointer" onclick="toggleRelation(${i})">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center text-white font-bold text-lg shadow-md">
+                    ${i + 1}
+                  </div>
+                  <div>
+                    <h2 class="text-lg font-bold" style="color:var(--dark)">${rel.name}</h2>
+                    <p class="text-sm text-gray-500 mt-0.5">${rel.intro.substring(0, 50)}...</p>
+                  </div>
+                </div>
+                <svg class="w-5 h-5 text-gray-400 transition-transform ${expandedRel===i ? 'rotate-180' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </div>
+            
+            ${expandedRel === i ? `
+            <div class="border-t border-gray-100 p-6 bg-gray-50/30">
+              <p class="text-sm text-gray-600 leading-relaxed mb-6">${rel.intro}</p>
+              
+              <div class="grid md:grid-cols-2 gap-4 mb-6">
+                <div class="aspect-block bg-white border border-green-200 rounded-xl">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-white text-xs">✓</span>
+                    <span class="font-semibold text-green-700 text-sm">${rel.aspect1.label}</span>
+                  </div>
+                  <p class="text-sm text-gray-600 leading-relaxed">${rel.aspect1.text}</p>
+                </div>
+                <div class="aspect-block bg-white border border-blue-200 rounded-xl">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs">→</span>
+                    <span class="font-semibold text-blue-700 text-sm">${rel.aspect2.label}</span>
+                  </div>
+                  <p class="text-sm text-gray-600 leading-relaxed">${rel.aspect2.text}</p>
+                </div>
+              </div>
+              
+              <!-- Related categories -->
+              <div>
+                <div class="text-xs font-semibold text-gray-500 mb-2">关联主题</div>
+                <div class="flex flex-wrap gap-2">
+                  ${rel.related_cats.map(catId => {
+                    const cat = getCatById(catId);
+                    return cat ? `
+                      <span class="positive-tag text-xs px-3 py-1 rounded-full cursor-pointer hover:opacity-80"
+                            onclick="currentCatTab=${KB_DATA.categories.indexOf(cat)};checklistSide='positive';showChecklist()">
+                        ${cat.short}
+                      </span>
+                    ` : '';
+                  }).join('')}
+                </div>
+              </div>
+            </div>
+            ` : ''}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function toggleRelation(idx) {
+  expandedRel = expandedRel === idx ? -1 : idx;
+  renderRelationsPage();
+}
+
+
+</script>
+</body>
+</html>
