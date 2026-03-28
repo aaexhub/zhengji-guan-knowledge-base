@@ -637,7 +637,7 @@ const KB_DATA = {
     {
       "id": "art_11",
       "title": "习近平总书记引导树立和践行正确政绩观的故事",
-      "category": "树立正确政绩观，坚持以人民为中心的发展思想",
+      "category": "理论文章",
       "source": "新华社·学习进行时",
       "wordCount": 4800,
       "keywords": [
