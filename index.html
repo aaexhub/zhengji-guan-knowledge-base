@@ -637,10 +637,7 @@ function showHome() {
       <div class="bg-white rounded-xl p-4 mb-6 shadow-sm border border-gray-100 flex flex-wrap items-center justify-center gap-4 text-sm">
         <span style="color:var(--dark)" class="font-semibold">📊 知识库统计</span>
         <span class="text-gray-600">共 <b style="color:var(--red)">${totalArticles}</b> 篇材料</span>
-        <span class="text-gray-300">|</span>
         <span class="text-gray-600">其中内置 <b>${KB_DATA.articles.length}</b> 篇</span>
-        <span class="text-gray-300">|</span>
-        <span class="text-gray-300">|</span>
       </div>
 
       <!-- Search -->
@@ -994,7 +991,6 @@ function renderChecklistDetail() {
         <h2 class="text-lg font-bold mb-1" style="color:var(--dark)">${cat.name}</h2>
         <div class="flex items-center gap-3 text-sm">
           <span class="text-green-600">正面 ${cat.positive.length} 条</span>
-          <span class="text-gray-300">|</span>
           <span class="text-red-600">负面 ${cat.negative.length} 条</span>
         </div>
       </div>
