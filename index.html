@@ -411,7 +411,17 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft
   }
 
   /* ===== 新增标签 ===== */
-  /* user-badge removed */
+  .user-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: linear-gradient(135deg, var(--gold), #e8b84f);
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 1rem;
+    font-weight: 600;
+  }
     display: inline-flex;
     align-items: center;
     gap: 0.15rem;
@@ -477,6 +487,82 @@ let currentCatTab = 0;
 let checklistSide = 'positive';
 let expandedRel = -1;
 
+// ========== localStorage 用户数据管理 ==========
+const LS_KEY = 'zhengjiguan_user_added';
+const LS_EXT_KEY = 'zhengjiguan_user_extlinks';
+
+function getUserAdded() {
+  try {
+    return JSON.parse(localStorage.getItem(LS_KEY)) || [];
+  } catch(e) { return []; }
+}
+
+function saveUserAdded(items) {
+  localStorage.setItem(LS_KEY, JSON.stringify(items));
+}
+
+function getUserExtLinks() {
+  try {
+    return JSON.parse(localStorage.getItem(LS_EXT_KEY)) || [];
+  } catch(e) { return []; }
+}
+
+function saveUserExtLinks(items) {
+  localStorage.setItem(LS_EXT_KEY, JSON.stringify(items));
+}
+
+function addUserItem(item) {
+  const items = getUserAdded();
+  item.id = 'user_' + Date.now();
+  item.addedAt = new Date().toISOString();
+  items.unshift(item);
+  saveUserAdded(items);
+  return item;
+}
+
+function removeUserItem(id) {
+  const items = getUserAdded().filter(i => i.id !== id);
+  saveUserAdded(items);
+}
+
+function addUserExtLink(link) {
+  const links = getUserExtLinks();
+  link.id = 'uext_' + Date.now();
+  link.addedAt = new Date().toISOString();
+  link.is_default = false;
+  links.unshift(link);
+  saveUserExtLinks(links);
+  return link;
+}
+
+function removeUserExtLink(id) {
+  const links = getUserExtLinks().filter(i => i.id !== id);
+  saveUserExtLinks(links);
+}
+
+function getAllExtLinks() {
+  const defaults = (KB_DATA.external_links || []).filter(l => l.is_default !== false);
+  const userLinks = getUserExtLinks();
+  return [...defaults, ...userLinks];
+}
+
+function getAllArticles() {
+  return KB_DATA.articles; // 用户添加功能已禁用
+}
+
+function getArticlesByCategory(cat) {
+  if (cat === '全部') return getAllArticles();
+  return getAllArticles().filter(a => a.category === cat);
+}
+
+function getUserAddedCount() {
+  return 0; // 用户添加功能已禁用
+}
+
+function getUserExtLinksCount() {
+  return getUserExtLinks().length;
+}
+
 // ========== Helpers ==========
 function $(sel) { return document.querySelector(sel); }
 function $$(sel) { return document.querySelectorAll(sel); }
@@ -515,8 +601,8 @@ function showToast(msg, isError) {
   setTimeout(() => t.remove(), 2600);
 }
 
-function isUserItem(id) { return false; }
-function isUserExt(id) { return false; }
+function isUserItem(id) { return id && id.startsWith('user_'); }
+function isUserExt(id) { return id && id.startsWith('uext_'); }
 
 // ========== Category counts with user data ==========
 function getCatCounts() {
@@ -553,6 +639,9 @@ function showHome() {
         <span class="text-gray-600">共 <b style="color:var(--red)">${totalArticles}</b> 篇材料</span>
         <span class="text-gray-300">|</span>
         <span class="text-gray-600">其中内置 <b>${KB_DATA.articles.length}</b> 篇</span>
+        <span class="text-gray-300">|</span>
+        <span class="text-gray-600">用户添加 <b style="color:var(--gold)">${userCount}</b> 条</span>
+        <span class="text-gray-300">|</span>
       </div>
 
       <!-- Search -->
@@ -599,7 +688,7 @@ function showHome() {
           </div>
         </div>
         <div class="card-hover bg-white rounded-xl p-6 cursor-pointer shadow-sm border border-gray-100"
-             onclick="showAtlas()">
+             onclick="renderRelationsPage()">
           <div class="flex items-center gap-3 mb-3">
             <span class="text-2xl">⚖️</span>
             <div>
@@ -618,7 +707,7 @@ function showHome() {
         <h2 class="text-xl font-bold" style="color:var(--dark)">全部文章</h2>
         <div class="flex items-center gap-3">
           <span class="text-sm text-gray-500">共 ${totalArticles} 篇</span>
-          
+          ${userCount > 0 ? `<span class="text-xs px-2 py-0.5 rounded-full" style="background:linear-gradient(135deg,var(--gold),#e8b84f);color:white">+${userCount} 条用户添加</span>` : ''}
         </div>
       </div>
       <div class="grid gap-3" id="homeArticleList">
@@ -637,7 +726,7 @@ function renderArticleCard(a, keyword='') {
   };
   const title = keyword ? highlightText(a.title, keyword) : a.title;
   const summary = keyword ? highlightText(a.summary, keyword) : a.summary;
-  const isUser = false;
+  const isUser = isUserItem(a.id);
   const isExt = a.isExternal;
   const wordCount = a.wordCount || (a.content ? a.content.length : 0);
   const source = a.source || '用户添加';
@@ -649,7 +738,7 @@ function renderArticleCard(a, keyword='') {
       <div class="flex items-start justify-between gap-3">
         <div class="flex-1 min-w-0">
           <div class="flex items-center gap-2 mb-2 flex-wrap">
-            
+            ${isUser ? '<span class="user-badge">✨ 新增</span>' : ''}
             <span class="text-xs text-gray-400">${source}</span>
           </div>
           <h3 class="font-semibold text-base mb-1 truncate" style="color:var(--dark)">🔗 ${title}</h3>
@@ -669,7 +758,7 @@ function renderArticleCard(a, keyword='') {
         <div class="flex-1 min-w-0">
           <div class="flex items-center gap-2 mb-2 flex-wrap">
             <span class="text-xs px-2 py-0.5 rounded-full ${catColors[a.category]||'bg-gray-100 text-gray-600'}">${a.category}</span>
-            
+            ${isUser ? '<span class="user-badge">✨ 新增</span>' : ''}
             <span class="text-xs text-gray-400">${source}</span>
             <span class="text-xs text-gray-400">${wordCount}字</span>
           </div>
@@ -677,7 +766,7 @@ function renderArticleCard(a, keyword='') {
           <p class="text-sm text-gray-500 line-clamp-2">${summary}</p>
         </div>
         <div class="flex items-center gap-1 flex-shrink-0 mt-1">
-          
+          ${isUser ? `<button class="btn-danger" onclick="event.stopPropagation();confirmDeleteUserItem('${a.id}')" title="删除">🗑</button>` : ''}
           <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
           </svg>
@@ -687,6 +776,12 @@ function renderArticleCard(a, keyword='') {
   `;
 }
 
+function confirmDeleteUserItem(id) {
+  if (confirm('确定删除这条用户添加的材料吗？')) {
+    removeUserItem(id);
+    showToast('已删除');
+    showHome();
+  }
 }
 
 function handleHomeSearch(val) {
@@ -814,7 +909,7 @@ function showArticle(id, keyword) {
       <article class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10">
         <div class="flex items-center gap-2 mb-4 flex-wrap">
           <span class="text-xs px-2 py-0.5 rounded-full ${catColors[article.category]||'bg-gray-100 text-gray-600'}">${article.category}</span>
-          
+          ${isUser ? '<span class="user-badge">✨ 新增</span>' : ''}
           <span class="text-xs text-gray-400">${source}</span>
           <span class="text-xs text-gray-400">${wordCount} 字</span>
         </div>
@@ -958,7 +1053,12 @@ function renderChecklistDetail() {
   `;
 }
 
-function showAtlas() { return; }
+function showAtlas() {
+  currentPage = 'atlas';
+  setActiveNav('home');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  renderRelationsPage();
+}
 
 function renderRelationsPage() {
   const app = document.querySelector('#app');
