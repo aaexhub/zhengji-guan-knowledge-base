@@ -9,7 +9,7 @@
 
 /* ===== Inline CSS (Tailwind Fallback) ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #faf8f5; color: #2d2d2d; min-height: 100vh; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #faf8f5; color: #2d2d2d; min-height: 100vh; margin: 0; padding: 0; width: 100%; }
 .font-serif-cn { font-family: 'STSong', 'SimSun', serif; }
 
 /* Layout */
@@ -142,6 +142,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft
     --border: #e8e4de;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; overflow-x: hidden; }
   body {
     font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
     background: var(--bg);
@@ -457,9 +458,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft
 </head>
 <body>
 
-<!-- Top Nav -->
-<header class="red-gradient text-white sticky top-0 z-40 shadow-lg">
-  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+<!-- 全局居中包装器 -->
+<div class="w-full flex justify-center">
+  <div class="w-full max-w-6xl">
+    <!-- Top Nav -->
+    <header class="red-gradient text-white sticky top-0 z-40 shadow-lg">
+      <div class="px-4 py-3 flex items-center justify-between">
     <div class="flex items-center gap-3 cursor-pointer" onclick="showHome()">
       <span class="text-2xl">📚</span>
       <span class="font-bold text-lg tracking-wide hidden sm:inline">牢记"三严三实"<br>树立和践行正确政绩观<br>学习知识库</span>
@@ -469,11 +473,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft
       <span class="nav-link active" data-page="home" onclick="showHome()">📚 知识库</span>
     </nav>
   </div>
-  <div class="gold-line"></div>
-</header>
+      <div class="gold-line"></div>
+    </header>
 
-<!-- Main Content -->
-<main id="app" class="max-w-6xl mx-auto px-4 py-6"></main>
+    <!-- Main Content -->
+    <main id="app" class="px-4 py-6"></main>
+  </div>
+</div>
 
 <!-- Scroll to top -->
 <button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
