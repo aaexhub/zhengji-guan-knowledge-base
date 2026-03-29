@@ -1094,7 +1094,7 @@ const KB_DATA = {
     {
       "id": "art_zj_1",
       "title": "深入学习贯彻习近平总书记关于树立和践行正确政绩观的重要论述①丨政绩观关乎立党为公、执政为民",
-      "category": "清风时评",
+      "category": "学习材料",
       "source": "焦作市纪委监委",
       "author": "",
       "wordCount": 1647,
@@ -1108,7 +1108,7 @@ const KB_DATA = {
     {
       "id": "art_zj_2",
       "title": "深入学习贯彻习近平总书记关于树立和践行正确政绩观的重要论述②丨以党的初心为本心 以党的使命为生命",
-      "category": "清风时评",
+      "category": "学习材料",
       "source": "焦作市纪委监委",
       "author": "",
       "wordCount": 1593,
@@ -1122,7 +1122,7 @@ const KB_DATA = {
     {
       "id": "art_zj_3",
       "title": "深入学习贯彻习近平总书记关于树立和践行正确政绩观的重要论述③丨以人民忧乐为忧乐 以人民甘苦为甘苦",
-      "category": "清风时评",
+      "category": "学习材料",
       "source": "焦作市纪委监委",
       "author": "",
       "wordCount": 1597,
@@ -1136,7 +1136,7 @@ const KB_DATA = {
     {
       "id": "art_zj_4",
       "title": "深入学习贯彻习近平总书记关于树立和践行正确政绩观的重要论述④丨时时放心不下 积极担当作为",
-      "category": "清风时评",
+      "category": "学习材料",
       "source": "焦作市纪委监委",
       "author": "",
       "wordCount": 1598,
@@ -1150,7 +1150,7 @@ const KB_DATA = {
     {
       "id": "art_zj_5",
       "title": "深入学习贯彻习近平总书记关于树立和践行正确政绩观的重要论述⑤丨以坚强党性树立和践行正确政绩观",
-      "category": "清风时评",
+      "category": "学习材料",
       "source": "焦作市纪委监委",
       "author": "",
       "wordCount": 1573,
@@ -1164,7 +1164,7 @@ const KB_DATA = {
     {
       "id": "art_zj_7",
       "title": "深入学习贯彻习近平总书记关于树立和践行正确政绩观的重要论述⑦丨明大德守公德严私德",
-      "category": "清风时评",
+      "category": "学习材料",
       "source": "焦作市纪委监委",
       "author": "",
       "wordCount": 1555,
@@ -1178,7 +1178,7 @@ const KB_DATA = {
     {
       "id": "art_zj_8",
       "title": "深入学习贯彻习近平总书记关于树立和践行正确政绩观的重要论述⑧丨做老实人、说老实话、干老实事",
-      "category": "清风时评",
+      "category": "学习材料",
       "source": "焦作市纪委监委",
       "author": "",
       "wordCount": 1454,
@@ -1192,7 +1192,7 @@ const KB_DATA = {
     {
       "id": "art_zj_10",
       "title": "深入学习贯彻习近平总书记关于树立和践行正确政绩观的重要论述⑩丨中国式现代化，民生为大",
-      "category": "清风时评",
+      "category": "学习材料",
       "source": "焦作市纪委监委",
       "author": "",
       "wordCount": 1540,
