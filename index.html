@@ -495,6 +495,29 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft
 
 <script src="data.js"></script>
 <script>
+// ========== 数据加载检查 ==========
+window.addEventListener('load', function() {
+  console.log('页面完全加载，检查KB_DATA:', typeof KB_DATA);
+  if (typeof KB_DATA === 'undefined') {
+    console.error('❌ KB_DATA未定义！data.js可能加载失败');
+    const app = document.querySelector('#app');
+    if (app) {
+      app.innerHTML = `
+        <div style="padding: 20px; background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 5px;">
+          <h3 style="color: #721c24;">⚠️ 数据加载失败</h3>
+          <p>知识库数据文件(data.js)加载失败，请刷新页面或检查网络连接。</p>
+          <p>错误：KB_DATA is not defined</p>
+          <button onclick="location.reload()" style="padding: 8px 16px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            重新加载
+          </button>
+        </div>
+      `;
+    }
+  } else {
+    console.log('✅ KB_DATA加载成功，文章数量:', KB_DATA.articles.length);
+  }
+});
+
 // ========== State ==========
 let currentPage = 'home';
 let currentCategory = '全部';
@@ -1165,27 +1188,49 @@ window.addEventListener('scroll', () => {
 
 // ========== Init ==========
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('政绩观知识库：DOM已加载，开始初始化...');
-  try {
-    showHome();
-    console.log('政绩观知识库：初始化完成，文章数量：' + getAllArticles().length);
-  } catch (error) {
-    console.error('政绩观知识库：初始化失败', error);
-    // 显示错误信息
-    const app = document.querySelector('#app');
-    if (app) {
-      app.innerHTML = `
-        <div style="padding: 20px; background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px;">
-          <h3 style="color: #856404;">⚠️ 网站初始化遇到问题</h3>
-          <p>错误信息：${error.message}</p>
-          <p>请刷新页面或联系技术支持。</p>
-          <button onclick="location.reload()" style="padding: 8px 16px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
-            刷新页面
-          </button>
-        </div>
-      `;
+  console.log('政绩观知识库：DOM已加载，等待数据检查...');
+  
+  // 等待数据加载检查完成
+  window.addEventListener('load', function() {
+    console.log('政绩观知识库：数据检查完成，开始初始化...');
+    try {
+      if (typeof KB_DATA !== 'undefined' && KB_DATA.articles) {
+        showHome();
+        console.log('政绩观知识库：初始化完成，文章数量：' + getAllArticles().length);
+      } else {
+        console.error('政绩观知识库：数据未就绪，无法初始化');
+        const app = document.querySelector('#app');
+        if (app) {
+          app.innerHTML = `
+            <div style="padding: 20px; background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px;">
+              <h3 style="color: #856404;">⚠️ 数据未就绪</h3>
+              <p>知识库数据加载中，请稍候...</p>
+              <p>如果长时间未加载，请刷新页面。</p>
+              <button onclick="location.reload()" style="padding: 8px 16px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                刷新页面
+              </button>
+            </div>
+          `;
+        }
+      }
+    } catch (error) {
+      console.error('政绩观知识库：初始化失败', error);
+      // 显示错误信息
+      const app = document.querySelector('#app');
+      if (app) {
+        app.innerHTML = `
+          <div style="padding: 20px; background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px;">
+            <h3 style="color: #856404;">⚠️ 网站初始化遇到问题</h3>
+            <p>错误信息：${error.message}</p>
+            <p>请刷新页面或联系技术支持。</p>
+            <button onclick="location.reload()" style="padding: 8px 16px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
+              刷新页面
+            </button>
+          </div>
+        `;
+      }
     }
-  }
+  });
 });
 </script>
 </body>
