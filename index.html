@@ -477,7 +477,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft
     </header>
 
     <!-- Main Content -->
-    <main id="app" class="px-4 py-6"></main>
+    <main id="app" class="px-4 py-6">
+      <div id="loading" style="text-align: center; padding: 40px;">
+        <div style="font-size: 24px; margin-bottom: 20px;">📚</div>
+        <h3>正在加载政绩观知识库...</h3>
+        <p>共43篇文章，请稍候</p>
+        <div style="width: 100px; height: 4px; background: #e0e0e0; margin: 20px auto; border-radius: 2px; overflow: hidden;">
+          <div id="loading-bar" style="width: 0%; height: 100%; background: #007bff; transition: width 0.3s;"></div>
+        </div>
+      </div>
+    </main>
   </div>
 </div>
 
@@ -623,6 +632,12 @@ function showHome() {
   currentPage = 'home';
   setActiveNav('home');
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  
+  // 隐藏加载状态
+  const loadingEl = document.querySelector('#loading');
+  if (loadingEl) {
+    loadingEl.style.display = 'none';
+  }
   
   const cats = [
     { name: '理论文章', icon: '📰', color: 'from-red-500 to-red-700', desc: '人民日报评论、新华社长文等权威解读' },
@@ -1150,7 +1165,27 @@ window.addEventListener('scroll', () => {
 
 // ========== Init ==========
 document.addEventListener('DOMContentLoaded', function() {
-  showHome();
+  console.log('政绩观知识库：DOM已加载，开始初始化...');
+  try {
+    showHome();
+    console.log('政绩观知识库：初始化完成，文章数量：' + getAllArticles().length);
+  } catch (error) {
+    console.error('政绩观知识库：初始化失败', error);
+    // 显示错误信息
+    const app = document.querySelector('#app');
+    if (app) {
+      app.innerHTML = `
+        <div style="padding: 20px; background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px;">
+          <h3 style="color: #856404;">⚠️ 网站初始化遇到问题</h3>
+          <p>错误信息：${error.message}</p>
+          <p>请刷新页面或联系技术支持。</p>
+          <button onclick="location.reload()" style="padding: 8px 16px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            刷新页面
+          </button>
+        </div>
+      `;
+    }
+  }
 });
 </script>
 </body>
