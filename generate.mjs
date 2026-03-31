@@ -198,25 +198,6 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",
       <div class="cat-card-progress"><div class="cat-card-progress-fill" id="cat-progress-${i}" style="width:0%;background:#c41a1a"></div></div>
     </div>`).join('\n    ')}
   </div>
-  <div class="monthly-progress">
-    <div class="progress-header">
-      <div class="progress-title">本月阅读进度</div>
-      <div class="progress-count" id="month-progress">0/${totalArticles}</div>
-    </div>
-    <div class="progress-bar">
-      <div class="progress-fill" id="progress-fill" style="width:0%"></div>
-    </div>
-    <div class="progress-info">
-      <div id="progress-percent">0%</div>
-      <div id="estimated-date">预计完成：--</div>
-    </div>
-  </div>
-  <div class="monthly-history">
-    <div class="history-title">📈 最近6个月阅读统计</div>
-    <div class="history-chart" id="history-chart">
-      <!-- 月度条形图将通过JS动态生成 -->
-    </div>
-  </div>
   <div class="total-stats">
     <div class="total-item">
       <div class="total-value" id="total-read">0</div>
@@ -304,79 +285,6 @@ function refreshDashboard() {
   
   // 获取已读数据
   var readList = JSON.parse(localStorage.getItem('zj_read') || '[]');
-  var readLog = JSON.parse(localStorage.getItem('zj_read_log') || '{}');
-  var currentMonth = getCurrentMonthKey();
-  
-  // 计算本月阅读进度
-  var currentMonthRead = readLog[currentMonth] || [];
-  var currentMonthCount = currentMonthRead.length;
-  var currentMonthPercent = Math.round((currentMonthCount / totalArticles) * 100);
-  
-  // 更新本月进度
-  document.getElementById('month-progress').textContent = currentMonthCount + '/' + totalArticles;
-  document.getElementById('progress-fill').style.width = currentMonthPercent + '%';
-  document.getElementById('progress-percent').textContent = currentMonthPercent + '%';
-  
-  // 计算预计完成日期
-  var estimatedDate = '--';
-  if (currentMonthCount > 0) {
-    var now = new Date();
-    var daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
-    var daysPassed = now.getDate();
-    var dailyRate = currentMonthCount / daysPassed;
-    var remainingArticles = totalArticles - currentMonthCount;
-    
-    if (dailyRate > 0) {
-      var daysNeeded = Math.ceil(remainingArticles / dailyRate);
-      var estimated = new Date(now);
-      estimated.setDate(now.getDate() + daysNeeded);
-      estimatedDate = '预计完成：' + (estimated.getMonth() + 1) + '月' + estimated.getDate() + '日';
-    }
-  }
-  document.getElementById('estimated-date').textContent = estimatedDate;
-  
-  // 生成最近6个月的历史图表
-  var chartContainer = document.getElementById('history-chart');
-  chartContainer.innerHTML = '';
-  
-  var allMonths = Object.keys(readLog).sort().reverse().slice(0, 6);
-  var maxCount = 0;
-  
-  // 找到最大值用于计算高度比例
-  allMonths.forEach(function(monthKey) {
-    var count = readLog[monthKey].length;
-    if (count > maxCount) maxCount = count;
-  });
-  
-  // 如果所有月份都是0，设置最大值为1避免除零
-  if (maxCount === 0) maxCount = 1;
-  
-  // 生成条形图
-  allMonths.forEach(function(monthKey) {
-    var count = readLog[monthKey].length;
-    var heightPercent = Math.round((count / maxCount) * 100);
-    
-    var monthDiv = document.createElement('div');
-    monthDiv.className = 'history-month';
-    
-    var barDiv = document.createElement('div');
-    barDiv.className = 'history-bar';
-    barDiv.style.height = heightPercent + '%';
-    barDiv.title = getMonthName(monthKey) + ': ' + count + '篇';
-    
-    var labelDiv = document.createElement('div');
-    labelDiv.className = 'history-label';
-    labelDiv.textContent = monthKey.split('-')[1] + '月';
-    
-    var countDiv = document.createElement('div');
-    countDiv.className = 'history-count';
-    countDiv.textContent = count;
-    
-    monthDiv.appendChild(barDiv);
-    monthDiv.appendChild(labelDiv);
-    monthDiv.appendChild(countDiv);
-    chartContainer.appendChild(monthDiv);
-  });
   
   // 更新累计统计
   var totalRead = readList.length;
@@ -386,19 +294,17 @@ function refreshDashboard() {
   document.getElementById('read-percentage').textContent = totalPercent + '%';
   
   // Update category progress
-  var catNames = ${JSON.stringify(categories)};
+  var catNames = categories;
   catNames.forEach(function(cat, i) {
     var catRead = 0;
-    var catTotal = 0;
-    // count read articles in this category
     readList.forEach(function(idx) {
       var card = allCards[idx];
       if (card && card.getAttribute('data-category') === cat) catRead++;
     });
-    catTotal = ${JSON.stringify(categoryCounts)}[cat] || 0;
     var bar = document.getElementById('cat-progress-' + i);
-    if (bar && catTotal > 0) {
-      bar.style.width = Math.round((catRead / catTotal) * 100) + '%';
+    if (bar) {
+      var catTotal = categoryCounts[cat] || 0;
+      if (catTotal > 0) bar.style.width = Math.round((catRead / catTotal) * 100) + '%';
     }
   });
 }
