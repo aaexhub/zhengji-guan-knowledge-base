@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Test</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>政绩观知识库调试测试</h1>
+    <div id="status">测试中...</div>
+    
+    <script>
+    // 测试数据
+    const testData = {
+        articles: [
+            {id: "art_0", title: "测试文章1", category: "理论文章", summary: "测试摘要1"},
+            {id: "art_1", title: "测试文章2", category: "学习材料", summary: "测试摘要2"}
+        ]
+    };
+    
+    function testShowHome() {
+        try {
+            const app = document.querySelector('#app') || document.querySelector('#status');
+            app.innerHTML = `
+                <h2 class="success">✅ JavaScript执行正常</h2>
+                <p>文章数量: ${testData.articles.length}</p>
+                ${testData.articles.map(article => `
+                    <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+                        <h3>${article.title}</h3>
+                        <p>${article.summary}</p>
+                    </div>
+                `).join('')}
+            `;
+            return true;
+        } catch (error) {
+            document.querySelector('#status').innerHTML = `
+                <h2 class="error">❌ JavaScript错误: ${error.message}</h2>
+                <pre>${error.stack}</pre>
+            `;
+            return false;
+        }
+    }
+    
+    // 测试不同的初始化方式
+    console.log("开始测试...");
+    
+    // 方式1：立即执行
+    setTimeout(() => {
+        console.log("方式1：setTimeout执行");
+        testShowHome();
+    }, 100);
+    
+    // 方式2：DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("方式2：DOMContentLoaded执行");
+        testShowHome();
+    });
+    
+    // 方式3：window.onload
+    window.onload = function() {
+        console.log("方式3：window.onload执行");
+        testShowHome();
+    };
+    
+    console.log("测试脚本加载完成");
+    </script>
+</body>
+</html>

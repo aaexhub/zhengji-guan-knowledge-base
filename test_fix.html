@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>测试修复</title>
+</head>
+<body>
+    <div id="app">等待加载...</div>
+    
+    <script>
+    // 模拟数据
+    const KB_DATA = {
+        articles: [
+            {id: "art_0", title: "测试文章1", category: "理论文章", summary: "测试摘要1"},
+            {id: "art_1", title: "测试文章2", category: "学习材料", summary: "测试摘要2"}
+        ]
+    };
+    
+    function showHome() {
+        const app = document.querySelector('#app');
+        app.innerHTML = `
+            <h1>知识库测试</h1>
+            <div>文章数量: ${KB_DATA.articles.length}</div>
+            ${KB_DATA.articles.map(article => `
+                <div class="article-card">
+                    <h3>${article.title}</h3>
+                    <p>${article.summary}</p>
+                </div>
+            `).join('')}
+        `;
+    }
+    
+    // 修复后的初始化
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM已加载，执行showHome');
+        showHome();
+    });
+    </script>
+</body>
+</html>
