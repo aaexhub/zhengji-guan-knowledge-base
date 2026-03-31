@@ -696,9 +696,9 @@ function setFilter(cat,btn){currentFilter=cat;var btns=document.querySelectorAll
 
 function filterArticles(){var q=document.getElementById('search').value.toLowerCase();var visible=0;for(var i=0;i<allCards.length;i++){var c=allCards[i];var cat=c.getAttribute('data-category');var title=c.querySelector('.card-title').textContent.toLowerCase();var sum=c.querySelector('.card-summary').textContent.toLowerCase();var matchCat=currentFilter==='all'||cat===currentFilter;var matchSearch=!q||title.indexOf(q)>-1||sum.indexOf(q)>-1;if(matchCat&&matchSearch){c.style.display='';visible++}else{c.style.display='none'}}document.getElementById('no-result').style.display=visible?'none':'block'}
 
-function showArticle(idx){document.getElementById('list-view').style.display='none';var dv=document.getElementById('detail-view');dv.innerHTML=detailHTML[idx];dv.style.display='block';window.scrollTo(0,0);markRead(idx)}
+function showArticle(idx){document.getElementById('list-view').style.display='none';var dv=document.getElementById('detail-view');dv.innerHTML=detailHTML[idx];dv.querySelector('.article-detail').style.display='block';dv.style.display='block';window.scrollTo(0,0);markRead(idx)}
 
-function showList(){document.getElementById('detail-view').style.display='none';document.getElementById('detail-view').innerHTML='';document.getElementById('list-view').style.display='';window.scrollTo(0,0)}
+function showList(){document.getElementById('detail-view').style.display='none';document.getElementById('detail-view').innerHTML='';document.getElementById('list-view').style.display='';window.scrollTo(0,0);allCards=document.querySelectorAll('.card');filterArticles()}
 
 // 阅读进度相关功能
 function getCurrentMonthKey() {
