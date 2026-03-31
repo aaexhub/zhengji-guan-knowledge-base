@@ -56,6 +56,21 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",
 .history-bar{width:100%;background:linear-gradient(to top,#ff8a8a,#c41a1a);border-radius:4px 4px 0 0;transition:height .3s;min-height:4px}
 .history-label{font-size:.7rem;color:#666;margin-top:.3rem;text-align:center}
 .history-count{font-size:.65rem;color:#c41a1a;font-weight:600;margin-top:.2rem}
+.category-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-bottom:1.5rem}
+.cat-card{background:#f9f9f9;border-radius:8px;padding:1rem;border-left:4px solid #c41a1a;transition:transform .2s}
+.cat-card:nth-child(2){border-left-color:#d4760a}
+.cat-card:nth-child(3){border-left-color:#2563a0}
+.cat-card:nth-child(4){border-left-color:#1a7a4c}
+.cat-card:hover{transform:translateY(-2px)}
+.cat-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.3rem}
+.cat-card-name{font-weight:600;font-size:.95rem;color:#333}
+.cat-card-count{font-size:1.2rem;font-weight:700;color:#c41a1a}
+.cat-card:nth-child(2) .cat-card-count{color:#d4760a}
+.cat-card:nth-child(3) .cat-card-count{color:#2563a0}
+.cat-card:nth-child(4) .cat-card-count{color:#1a7a4c}
+.cat-card-desc{font-size:.78rem;color:#888;line-height:1.4}
+.cat-card-progress{height:4px;background:#e0e0e0;border-radius:2px;margin-top:.5rem;overflow:hidden}
+.cat-card-progress-fill{height:100%;border-radius:2px;transition:width .3s}
 .total-stats{display:flex;justify-content:space-between;background:#f9f9f9;padding:.8rem;border-radius:6px;font-size:.85rem}
 .total-item{text-align:center;flex:1}
 .total-value{font-size:1.1rem;font-weight:600;color:#c41a1a;margin-bottom:.2rem}
@@ -70,6 +85,7 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",
   .history-label{font-size:.65rem}
   .total-stats{flex-direction:column;gap:.5rem}
   .total-item{text-align:left}
+  .category-cards{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -82,6 +98,28 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",
   <div class="dashboard-header">
     <div class="dashboard-title">📊 月度阅读进度看板</div>
     <button class="dashboard-refresh" onclick="refreshDashboard()">🔄 刷新数据</button>
+  </div>
+  <div class="category-cards">
+    <div class="cat-card" onclick="setFilter('理论文章',document.querySelectorAll('.filter-btn')[1]);document.querySelector('.search-box').value='';filterArticles();window.scrollTo({top:document.querySelector('.controls').offsetTop,behavior:'smooth'})">
+      <div class="cat-card-header"><div class="cat-card-name">📕 理论文章</div><div class="cat-card-count">10 <span style="font-size:.7rem;font-weight:400;color:#888">篇</span></div></div>
+      <div class="cat-card-desc">人民日报评论、新华社长文等权威解读</div>
+      <div class="cat-card-progress"><div class="cat-card-progress-fill" id="cat-progress-0" style="width:0%;background:#c41a1a"></div></div>
+    </div>
+    <div class="cat-card" onclick="setFilter('政策部署',document.querySelectorAll('.filter-btn')[2]);document.querySelector('.search-box').value='';filterArticles();window.scrollTo({top:document.querySelector('.controls').offsetTop,behavior:'smooth'})">
+      <div class="cat-card-header"><div class="cat-card-name">📗 政策部署</div><div class="cat-card-count">1 <span style="font-size:.7rem;font-weight:400;color:#888">篇</span></div></div>
+      <div class="cat-card-desc">党中央部署通知、学习教育方案</div>
+      <div class="cat-card-progress"><div class="cat-card-progress-fill" id="cat-progress-1" style="width:0%;background:#c41a1a"></div></div>
+    </div>
+    <div class="cat-card" onclick="setFilter('学习材料',document.querySelectorAll('.filter-btn')[3]);document.querySelector('.search-box').value='';filterArticles();window.scrollTo({top:document.querySelector('.controls').offsetTop,behavior:'smooth'})">
+      <div class="cat-card-header"><div class="cat-card-name">📘 学习材料</div><div class="cat-card-count">30 <span style="font-size:.7rem;font-weight:400;color:#888">篇</span></div></div>
+      <div class="cat-card-desc">正负面清单、五对关系等结构化材料</div>
+      <div class="cat-card-progress"><div class="cat-card-progress-fill" id="cat-progress-2" style="width:0%;background:#c41a1a"></div></div>
+    </div>
+    <div class="cat-card" onclick="setFilter('交流发言',document.querySelectorAll('.filter-btn')[4]);document.querySelector('.search-box').value='';filterArticles();window.scrollTo({top:document.querySelector('.controls').offsetTop,behavior:'smooth'})">
+      <div class="cat-card-header"><div class="cat-card-name">📙 交流发言</div><div class="cat-card-count">2 <span style="font-size:.7rem;font-weight:400;color:#888">篇</span></div></div>
+      <div class="cat-card-desc">发言提纲、学习体会、交流材料</div>
+      <div class="cat-card-progress"><div class="cat-card-progress-fill" id="cat-progress-3" style="width:0%;background:#c41a1a"></div></div>
+    </div>
   </div>
   <div class="monthly-progress">
     <div class="progress-header">
@@ -389,7 +427,7 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",
   </div>
   <div id="detail-view" style="display:none"></div>
 </div>
-<div class="stats">共 43 篇文章 · 生成时间：2026/3/31 10:51:09</div>
+<div class="stats">共 43 篇文章 · 生成时间：2026/3/31 11:09:39</div>
 <div id="article-0" class="article-detail" style="display:none">
     <div class="article-back"><a href="#" onclick="showList();return false;">← 返回列表</a></div>
     <h2 class="article-title">什么是政绩观？党员干部怎样坚持正确政绩观？</h2>
@@ -784,6 +822,23 @@ function refreshDashboard() {
   
   document.getElementById('total-read').textContent = totalRead;
   document.getElementById('read-percentage').textContent = totalPercent + '%';
+  
+  // Update category progress
+  var catNames = ["理论文章","政策部署","学习材料","交流发言"];
+  catNames.forEach(function(cat, i) {
+    var catRead = 0;
+    var catTotal = 0;
+    // count read articles in this category
+    readList.forEach(function(idx) {
+      var card = allCards[idx];
+      if (card && card.getAttribute('data-category') === cat) catRead++;
+    });
+    catTotal = {"理论文章":10,"政策部署":1,"学习材料":30,"交流发言":2}[cat] || 0;
+    var bar = document.getElementById('cat-progress-' + i);
+    if (bar && catTotal > 0) {
+      bar.style.width = Math.round((catRead / catTotal) * 100) + '%';
+    }
+  });
 }
 
 // 页面加载时初始化看板
@@ -791,6 +846,6 @@ window.addEventListener('DOMContentLoaded', function() {
   refreshDashboard();
 });
 </script>
-<!-- 共 43 篇文章，生成时间：2026/3/31 10:51:09 -->
+<!-- 共 43 篇文章，生成时间：2026/3/31 11:09:39 -->
 </body>
 </html>
