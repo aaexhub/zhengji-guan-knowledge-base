@@ -768,7 +768,7 @@ function refreshDashboard() {
       var daysNeeded = Math.ceil(remainingArticles / dailyRate);
       var estimated = new Date(now);
       estimated.setDate(now.getDate() + daysNeeded);
-      estimatedDate = '预计完成：' + estimated.getMonth() + 1 + '月' + estimated.getDate() + '日';
+      estimatedDate = '预计完成：' + (estimated.getMonth() + 1) + '月' + estimated.getDate() + '日';
     }
   }
   document.getElementById('estimated-date').textContent = estimatedDate;
